@@ -68,7 +68,7 @@ O usuário do projeto é **advogado e não programador**: explique em português
 - [ ] Conferência das regras da calculadora (`src/assets/js/regras-trabalhistas.js`, campo `conferidoPelosSociosEm`).
 - [ ] Confirmar CEP; decidir sobre coworking (Provimento art. 8º) se for o caso.
 - [x] Usuário do GitHub: **soaresporath** (`siteUrl` já ajustado para `https://soaresporath.github.io`). Git e GitHub CLI instalados e logados.
-- [ ] **Publicar:** criar o repositório público `soaresporath.github.io`, enviar, ativar o Pages (pasta `docs/` da `main`). Só depois do "pode" explícito do usuário. Ao lançar, **trocar `"noindex": true` para `false`** em `src/site.json` e remontar.
+- [x] **Publicado em 21/11/2026** ("Pode publicar" da Dra. Bianca): https://soaresporath.github.io (repositório público `soaresporath/soaresporath.github.io`, Pages na pasta `docs/` da `main`, HTTPS ativo, `noindex` = false). Publicado com os 3 trechos `TODO (sócios)` dos artigos e sem a conferência final das regras da calculadora: revisar depois.
 - [ ] Revisão dos sócios: `privacidade.html`, `cuidado-com-golpes.html`, textos das 6 áreas (FAQ com citações legais) e os 6 artigos (dois têm `TODO (sócios)`).
 - [x] Bairro: Perdizes (autorizado em 21/11/2026). CEP ainda não publicado.
 - [ ] Analytics (Search Console; Cloudflare Web Analytics ou GA4 com banner de consentimento) e Perfil da Empresa no Google.
@@ -100,7 +100,9 @@ Links internos sempre com `{{ROOT}}arquivo.html` (com `.html`, para funcionar ta
 ## Estado do Git (ambiente do computador do usuário)
 - Repositório local já iniciado (branch `main`), com a pasta `.git` **fora do OneDrive** (`C:\Users\soare\git-repos\soares-porath-site.git`; a pasta do projeto tem só um arquivo `.git` apontando para lá). Não mover nem apagar essa pasta.
 - Commits usam o e-mail anônimo do GitHub (`...@users.noreply.github.com`), nunca e-mail pessoal.
-- Ainda **não há repositório remoto** nem site publicado.
+- Remoto `origin` = https://github.com/soaresporath/soaresporath.github.io (público). A `main` publicada começou limpa, com 1 commit, em 21/11/2026. O histórico anterior ficou só no computador, no branch local `historico-local`: **nunca enviar esse branch** (contém anotações que não devem ser públicas).
+- Para publicar uma alteração: montar sem `-IncludeDrafts`, commit na `main` e `git push` (o `gh auth setup-git` já está configurado). O Pages atualiza em 1 a 2 minutos.
+- Anotações internas `<!-- TODO ... -->` são removidas automaticamente pelo `build.ps1` e não aparecem no site publicado.
 - Em novas janelas do PowerShell o Git e o `gh` podem não estar no PATH: usar `$env:Path = "C:\Program Files\Git\cmd;C:\Program Files\GitHub CLI;" + $env:Path`.
 - Prévia local: `tools/serve.ps1` (porta 8081 pelo `.claude/launch.json`), abrir `/docs/index.html`; para ver rascunhos montar com `-IncludeDrafts` e **depois remontar sem** antes de commitar.
 
