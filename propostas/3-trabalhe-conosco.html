@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trabalhe conosco | Soares Porath Advocacia</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="../src/assets/img/favicon.png">
+<link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="p3.css">
+<link rel="stylesheet" href="p3-pagina.css">
+<style>
+.perfil{display:grid;gap:14px}
+.perfil .card{display:flex;gap:16px;align-items:flex-start;padding:24px}
+.perfil .ic{flex:0 0 38px;height:38px;border-radius:12px;display:grid;place-items:center;background:rgba(212,184,114,.12);color:var(--gold);font:600 14px/1 var(--sans)}
+.perfil h3{font-size:19px;margin:2px 0 6px}
+.perfil p{margin:0;color:var(--mute);font-size:15px}
+@media(min-width:760px){.perfil{grid-template-columns:1fr 1fr}}
+.convite-cultura{margin-top:22px;border-radius:22px;padding:30px;background:linear-gradient(150deg,rgba(212,184,114,.14),rgba(212,184,114,.03));border:1px solid rgba(212,184,114,.3)}
+.convite-cultura p{margin:0;font-size:18px;line-height:1.7}
+.passos{display:grid;gap:14px;counter-reset:p}
+.passo{position:relative;padding:24px 24px 24px 76px}
+.passo::before{counter-increment:p;content:counter(p);position:absolute;left:24px;top:22px;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(180deg,#E3CB8D,#C9A85F);color:#0A1022;font:700 15px/1 var(--sans)}
+.passo h3{font-size:19px;margin:0 0 6px}
+.passo p{margin:0;color:var(--mute);font-size:15px}
+@media(min-width:900px){.passos{grid-template-columns:repeat(4,1fr)}.passo{padding:76px 22px 24px}.passo::before{top:24px;left:22px}}
+.form-cv{display:grid;gap:0}
+.form-cv h3{font-size:22px;margin:6px 0 18px}
+.form-cv .bloco{padding-top:10px;margin-top:10px;border-top:1px solid var(--stroke)}
+.form-cv .bloco:first-of-type{border:0;margin:0;padding:0}
+.campo{margin-bottom:16px}
+.campo label,.campo .rot{display:block;font:500 14px/1.35 var(--sans);color:var(--text);margin:0 0 8px}
+.campo small{display:block;color:var(--mute);font-size:12.5px;margin-top:6px;text-align:left}
+.campo input,.campo select,.campo textarea{width:100%;min-height:50px;padding:12px 14px;border-radius:12px;border:1px solid var(--stroke);background:rgba(255,255,255,.05);color:var(--text);font:400 15.5px/1.4 var(--sans);color-scheme:dark}
+.campo textarea{min-height:120px;resize:vertical}
+.campo select option{background:#0C1430}
+.campo input:focus,.campo select:focus,.campo textarea:focus{outline:2px solid rgba(212,184,114,.6);border-color:transparent}
+.campo.invalido input,.campo.invalido select,.campo.invalido textarea{border-color:#E59A8C}
+.campo .msg{display:none;color:#F2B8AE;font-size:13px;margin-top:6px;text-align:left}
+.campo.invalido .msg{display:block}
+.dupla{display:grid;gap:0 16px}
+@media(min-width:640px){.dupla{grid-template-columns:1fr 1fr}}
+.arquivo{position:relative;border:1.5px dashed rgba(212,184,114,.45);border-radius:14px;padding:22px;text-align:center;background:rgba(212,184,114,.04);cursor:pointer}
+.arquivo input{position:absolute;inset:0;opacity:0;cursor:pointer;min-height:0}
+.arquivo b{display:block;color:var(--gold-2);font-weight:600}
+.arquivo span{display:block;color:var(--mute);font-size:13px;margin-top:4px}
+.consent{display:flex;gap:12px;align-items:flex-start;font-size:14px;color:var(--mute);text-align:left}
+.consent input{flex:0 0 18px;width:18px;height:18px;min-height:0;margin-top:3px;accent-color:var(--gold)}
+.consent a{color:var(--gold-2)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.status{margin:14px 0 0;font-size:14px;color:var(--mute);text-align:left}
+.lado{display:grid;gap:18px;align-items:start}
+@media(min-width:1000px){.lado{grid-template-columns:1.25fr .75fr}.lado aside{position:sticky;top:110px}}
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true"><div class="orb"></div></div>
+<header data-header>
+  <div class="wrap"><div class="bar">
+    <a class="logo" href="3-contemporaneo.html" aria-label="Soares Porath Advocacia, página inicial"><img src="../src/assets/img/emblema-96.png" srcset="../src/assets/img/emblema-96.png 1x, ../src/assets/img/emblema-192.png 2x" alt=""><span><b>Soares Porath</b><small>ADVOCACIA</small></span></a>
+    <ul class="links"><li><a href="3-contemporaneo.html#escritorio">Escritório</a></li><li><a href="3-visao-valores.html">Missão, Visão e Valores</a></li><li><a href="3-contemporaneo.html#atuacao">Atuação</a></li><li><a href="3-contemporaneo.html#calculadora">Calculadora</a></li><li><a href="3-contemporaneo.html#socios">Sócios</a></li><li><a href="3-contemporaneo.html#conteudos">Conteúdos</a></li></ul>
+    <a class="btn btn-gold" href="https://wa.me/5511989443124" target="_blank" rel="noopener">Fale com nossos advogados</a>
+    <button class="burger" data-menu-toggle aria-expanded="false" aria-label="Abrir menu">☰</button>
+  </div></div>
+</header>
+<nav class="mnav" data-menu aria-label="Menu"><a href="3-contemporaneo.html#escritorio">Escritório</a><a href="3-visao-valores.html">Missão, Visão e Valores</a><a href="3-contemporaneo.html#atuacao">Atuação</a><a href="3-contemporaneo.html#calculadora">Calculadora</a><a href="3-contemporaneo.html#socios">Sócios</a><a href="3-contemporaneo.html#conteudos">Conteúdos</a><a href="3-trabalhe-conosco.html">Trabalhe conosco</a></nav>
+
+<section class="topo">
+  <div class="wrap" data-reveal>
+    <span class="chip"><i></i>Trabalhe conosco</span>
+    <h1>Construa sua trajetória em um escritório que une <span class="grad">técnica e humanidade.</span></h1>
+    <p class="lead">Na Soares Porath Advocacia, cada caso é conduzido com estratégia, transparência e atenção genuína às pessoas. Somos um escritório que valoriza quem faz parte do time, investe em tecnologia e evolui constantemente. Buscamos profissionais que compartilhem desses valores e queiram crescer conosco.</p>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:50px">
+  <div class="wrap">
+    <div class="tit" data-reveal><span class="chip"><i></i>Nossa cultura</span><h2>Este pode ser o seu lugar se você…</h2></div>
+    <div class="perfil">
+      <div class="card" data-reveal><div class="ic">01</div><div><h3>Tem a ética como ponto de partida</h3><p>Entende que a confiança do cliente se constrói com integridade em cada decisão, das mais simples às mais complexas.</p></div></div>
+      <div class="card" data-reveal><div class="ic">02</div><div><h3>Gosta de estudar e ir a fundo</h3><p>Sente satisfação em compreender cada detalhe técnico e em buscar a melhor fundamentação para cada caso.</p></div></div>
+      <div class="card" data-reveal><div class="ic">03</div><div><h3>Escuta com atenção e empatia</h3><p>Reconhece que por trás de cada processo existe uma história, e trata cada pessoa com respeito e sensibilidade.</p></div></div>
+      <div class="card" data-reveal><div class="ic">04</div><div><h3>Assume compromissos e cuida dos detalhes</h3><p>Valoriza prazos, organização e responsabilidade, porque sabe o quanto cada causa é importante para quem a confia.</p></div></div>
+      <div class="card" data-reveal><div class="ic">05</div><div><h3>Gosta de tecnologia e de evoluir</h3><p>Tem curiosidade por novas ferramentas e formas de trabalhar, e quer acompanhar um escritório que cresce junto com a inovação.</p></div></div>
+      <div class="card" data-reveal><div class="ic">06</div><div><h3>Quer crescer em um time que valoriza pessoas</h3><p>Busca um ambiente de respeito e colaboração, em que cada colaborador é reconhecido e tem espaço para se desenvolver.</p></div></div>
+    </div>
+    <div class="convite-cultura centro" data-reveal><p>Se você se reconheceu nessa descrição e tem interesse em fazer parte de um escritório com essa cultura, <strong>queremos conhecer você.</strong> Envie sua candidatura seguindo o passo a passo abaixo.</p></div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:20px">
+  <div class="wrap">
+    <div class="tit" data-reveal><span class="chip"><i></i>Como se candidatar</span><h2>Passo a passo.</h2></div>
+    <div class="passos">
+      <div class="card passo" data-reveal><h3>Seus dados</h3><p>Informe nome, e-mail e telefone para contato.</p></div>
+      <div class="card passo" data-reveal><h3>Sua apresentação</h3><p>Conte sua trajetória e responda a duas perguntas rápidas sobre os nossos valores.</p></div>
+      <div class="card passo" data-reveal><h3>Seu currículo</h3><p>Anexe o currículo em PDF, com até 5 MB.</p></div>
+      <div class="card passo" data-reveal><h3>Envio</h3><p>Confirme o consentimento e envie. Sua candidatura chega diretamente ao escritório.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:20px" id="candidatura">
+  <div class="wrap lado">
+    <form class="card form-cv" id="form-cv" novalidate data-reveal>
+      <div class="hp" aria-hidden="true"><label>Não preencha este campo<input type="text" id="site_url" tabindex="-1" autocomplete="off"></label></div>
+
+      <div class="bloco">
+        <h3>1. Seus dados</h3>
+        <div class="campo"><label for="nome">Nome completo *</label><input id="nome" name="Nome completo" autocomplete="name" required><div class="msg">Informe seu nome completo.</div></div>
+        <div class="dupla">
+          <div class="campo"><label for="email">E-mail *</label><input id="email" name="email" type="email" autocomplete="email" required><div class="msg">Informe um e-mail válido.</div></div>
+          <div class="campo"><label for="tel">Telefone com DDD *</label><input id="tel" name="Telefone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(11) 90000-0000" required><div class="msg">Informe um telefone com DDD.</div></div>
+        </div>
+        <div class="dupla">
+          <div class="campo"><label for="vaga">Oportunidade de interesse *</label><select id="vaga" name="Oportunidade de interesse" required><option value="">Selecione</option><option>Estágio em Direito</option><option>Advogado(a)</option><option>Área administrativa</option><option>Outra</option></select><div class="msg">Selecione uma opção.</div></div>
+          <div class="campo"><label for="area">Área de atuação de interesse *</label><select id="area" name="Área de interesse" required><option value="">Selecione</option><option>Família e Sucessões</option><option>Previdenciário</option><option>Direito do Aeronauta e da Aviação</option><option>Cível e Consumidor</option><option>Direito Educacional</option><option>Trabalhista</option><option>Sem preferência</option></select><div class="msg">Selecione uma opção.</div></div>
+        </div>
+        <div class="campo"><label for="linkedin">LinkedIn (opcional)</label><input id="linkedin" name="LinkedIn" type="url" placeholder="https://www.linkedin.com/in/…"></div>
+      </div>
+
+      <div class="bloco">
+        <h3>2. Sua apresentação</h3>
+        <div class="campo"><label for="apres">Apresentação profissional *</label><textarea id="apres" name="Apresentação profissional" required minlength="60" placeholder="Conte brevemente sua formação, experiências e o que busca na sua carreira."></textarea><small>Mínimo de 60 caracteres.</small><div class="msg">Escreva uma apresentação com pelo menos 60 caracteres.</div></div>
+        <div class="campo"><label for="valor">Qual dos nossos valores mais representa você? *</label><select id="valor" name="Valor com que mais se identifica" required><option value="">Selecione</option><option>Ética</option><option>Técnica</option><option>Escuta ativa e empatia</option><option>Compromisso</option><option>Inovação e tecnologia</option><option>Valorização das pessoas</option></select><div class="msg">Selecione um valor.</div></div>
+        <div class="campo"><label for="porque">Conte uma situação em que você colocou esse valor em prática *</label><textarea id="porque" name="Situação em que aplicou o valor" required minlength="40" placeholder="Pode ser na faculdade, no trabalho ou na vida pessoal."></textarea><div class="msg">Conte a situação com pelo menos 40 caracteres.</div></div>
+      </div>
+
+      <div class="bloco">
+        <h3>3. Seu currículo</h3>
+        <div class="campo" id="campo-arquivo">
+          <div class="arquivo"><input id="cv" name="attachment" type="file" accept="application/pdf,.pdf" required><b id="cv-nome">Clique para anexar seu currículo</b><span>Somente PDF, até 5 MB</span></div>
+          <div class="msg" id="cv-msg">Anexe o currículo em PDF com até 5 MB.</div>
+        </div>
+      </div>
+
+      <div class="bloco">
+        <div class="campo" id="campo-consent"><label class="consent"><input type="checkbox" id="consent" name="Consentimento LGPD" value="Autorizo o tratamento dos meus dados para fins de recrutamento" required><span>Autorizo a Soares Porath Advocacia a tratar os dados informados e o currículo enviado exclusivamente para fins de recrutamento e seleção, conforme a <a href="3-privacidade.html" target="_blank">Política de Privacidade</a>. *</span></label><div class="msg">É necessário autorizar o tratamento dos dados para enviar a candidatura.</div></div>
+        <button class="btn btn-gold" type="submit" id="enviar" style="width:100%">Enviar candidatura</button>
+        <p class="status" id="status" role="status"></p>
+      </div>
+    </form>
+    <aside data-reveal>
+      <div class="card">
+        <span class="chip"><i></i>Seus dados</span>
+        <h3 style="font-size:20px;margin:14px 0 10px">Tratados com cuidado</h3>
+        <p style="color:var(--mute);font-size:15px;margin:0 0 12px">As informações e o currículo enviados são usados somente para o processo de recrutamento e seleção do escritório.</p>
+        <p style="color:var(--mute);font-size:15px;margin:0 0 12px">Você pode pedir a qualquer momento a exclusão dos seus dados pelo e-mail <a href="mailto:soaresporath.adv@gmail.com" style="color:var(--gold-2)">soaresporath.adv@gmail.com</a>.</p>
+        <p style="color:var(--mute);font-size:15px;margin:0">O envio da candidatura não garante contratação. As oportunidades dependem das necessidades do escritório.</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="ft">
+      <div><a class="logo" href="3-contemporaneo.html"><img src="../src/assets/img/emblema-96.png" srcset="../src/assets/img/emblema-96.png 1x, ../src/assets/img/emblema-192.png 2x" alt=""><span><b>Soares Porath</b><small>ADVOCACIA</small></span></a><p>Advocacia estratégica em Família e Sucessões, Previdenciário, Direito do Aeronauta, Cível, Educacional e Trabalhista, em todo o território nacional.</p></div>
+      <div><h4>Atuação</h4><ul><li><a href="3-area.html?a=familia">Família e Sucessões</a></li><li><a href="3-area.html?a=prev">Previdenciário</a></li><li><a href="3-area.html?a=aviacao">Direito do Aeronauta</a></li><li><a href="3-area.html?a=civel">Cível e Consumidor</a></li><li><a href="3-area.html?a=educ">Direito Educacional</a></li><li><a href="3-area.html?a=trab">Trabalhista</a></li></ul></div>
+      <div><h4>Escritório</h4><ul><li><a href="3-contemporaneo.html#escritorio">O escritório</a></li><li><a href="3-visao-valores.html">Missão, Visão e Valores</a></li><li><a href="3-contemporaneo.html#socios">Sócios</a></li><li><a href="3-contemporaneo.html#calculadora">Calculadora</a></li><li><a href="3-trabalhe-conosco.html">Trabalhe conosco</a></li></ul></div>
+      <div><h4>Contato</h4><ul><li><a href="https://wa.me/5511989443124">WhatsApp (11) 98944-3124</a></li><li><a href="mailto:soaresporath.adv@gmail.com">soaresporath.adv@gmail.com</a></li><li>Av. Nicolas Boer, 399, Lapa, São Paulo/SP</li></ul><h4 style="margin-top:28px">Redes sociais</h4><ul><li><a class="ig" href="https://www.instagram.com/soaresporath.adv/" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>@soaresporath.adv</a></li></ul></div>
+    </div>
+    <div class="fb"><span>© 2026 Soares Porath Advocacia · OAB/SP 528.825 · OAB/SP 534.679</span><span><a href="3-privacidade.html" style="color:inherit">Política de Privacidade</a> · <a href="3-cuidado-com-golpes.html" style="color:inherit">Cuidado com Golpes</a></span></div>
+  </div>
+</footer>
+<a class="wa" href="https://wa.me/5511989443124" target="_blank" rel="noopener" aria-label="WhatsApp do escritório"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3a.5.5 0 0 0 0-.5c-.1-.1-.6-1.3-.8-1.8s-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"/></svg></a>
+<a class="proposta-tag" href="3-contemporaneo.html">← Voltar à página inicial (proposta 3)</a>
+<script src="shared.js"></script>
+<script>
+(function(){
+  'use strict';
+  var f=document.getElementById('form-cv'),cv=document.getElementById('cv'),nomeCv=document.getElementById('cv-nome'),st=document.getElementById('status');
+  var MAX=5*1024*1024;
+  // Endereço do script do Google que recebe as candidaturas (tools/apps-script-curriculos.gs).
+  // Preencher com a URL do "App da Web" publicada na conta do escritório.
+  var ENDPOINT='https://script.google.com/macros/s/AKfycbwVz97jemp8mvycjqu8zWFw63bxZm-Q3jGVKL8u3Subzsogw-DlSSsT0AXCrgbMILUJHQ/exec';
+  var INICIO=Date.now();
+  function marca(el,ok){var c=el.closest('.campo');if(c)c.classList.toggle('invalido',!ok);return ok;}
+  function validaArquivo(){
+    var a=cv.files&&cv.files[0];var msg=document.getElementById('cv-msg');
+    if(!a){msg.textContent='Anexe o currículo em PDF com até 5 MB.';return marca(cv,false);}
+    var pdf=/\.pdf$/i.test(a.name)&&(a.type===''||a.type==='application/pdf');
+    if(!pdf){msg.textContent='O arquivo precisa estar em PDF.';return marca(cv,false);}
+    if(a.size>MAX){msg.textContent='O arquivo tem '+(a.size/1048576).toFixed(1)+' MB. O limite é 5 MB.';return marca(cv,false);}
+    return marca(cv,true);
+  }
+  cv.addEventListener('change',function(){var a=cv.files[0];nomeCv.textContent=a?a.name:'Clique para anexar seu currículo';validaArquivo();});
+  function valida(){
+    var ok=true;
+    f.querySelectorAll('input[required]:not([type=file]):not([type=checkbox]),select[required],textarea[required]').forEach(function(el){
+      var v=el.value.trim(),bom=v.length>0;
+      if(el.type==='email')bom=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+      if(el.type==='tel')bom=v.replace(/\D/g,'').length>=10;
+      if(el.minLength>0)bom=bom&&v.length>=el.minLength;
+      if(!marca(el,bom))ok=false;
+    });
+    if(!validaArquivo())ok=false;
+    var c=document.getElementById('consent');if(!marca(c,c.checked))ok=false;
+    return ok;
+  }
+  f.querySelectorAll('input,select,textarea').forEach(function(el){el.addEventListener('blur',function(){if(el.closest('.campo.invalido'))valida();});});
+  function base64(arquivo){return new Promise(function(ok,falha){var r=new FileReader();r.onload=function(){ok(String(r.result).split(',')[1]);};r.onerror=falha;r.readAsDataURL(arquivo);});}
+  function v(id){return document.getElementById(id).value.trim();}
+  var btn=document.getElementById('enviar');
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!valida()){st.textContent='Revise os campos destacados.';var p=f.querySelector('.invalido');if(p)p.scrollIntoView({behavior:'smooth',block:'center'});return;}
+    if(!ENDPOINT){st.textContent='O envio de candidaturas está em configuração. Tente novamente em breve.';return;}
+    btn.disabled=true;st.textContent='Enviando sua candidatura…';
+    var arq=cv.files[0];
+    base64(arq).then(function(b64){
+      var dados={nome:v('nome'),email:v('email'),telefone:v('tel'),oportunidade:v('vaga'),area:v('area'),linkedin:v('linkedin'),apresentacao:v('apres'),valor:v('valor'),situacao:v('porque'),consentimento:document.getElementById('consent').checked,site_url:v('site_url'),inicio:INICIO,arquivo:{nome:arq.name,base64:b64}};
+      return fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(dados)});
+    }).then(function(r){return r.json();}).then(function(r){
+      if(r&&r.ok){location.href='3-obrigado.html';return;}
+      st.textContent=(r&&r.erro)||'Não foi possível enviar agora. Tente novamente em instantes.';btn.disabled=false;
+    }).catch(function(){st.textContent='Não foi possível enviar agora. Verifique sua conexão e tente novamente.';btn.disabled=false;});
+  });
+})();
+</script>
+</body>
+</html>

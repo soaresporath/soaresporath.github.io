@@ -1,0 +1,15 @@
+# Configurações locais do app (não vão para o repositório)
+.claude/
+revisao/
+
+# Arquivos que NUNCA devem ir para o repositório público
+*.docx
+*.pdf
+*.xlsx
+curriculos/
+clientes/
+documentos-internos/
+.env
+*.log
+Thumbs.db
+.DS_Store

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>Testes da calculadora</title>
+<style>body{font:15px system-ui;margin:24px}.ok{color:#0a7a2f}.fail{color:#b00020;font-weight:700}h3{margin:18px 0 6px}</style></head>
+<body>
+<h1>Testes da calculadora de rescisão</h1>
+<p>Abra este arquivo no navegador (pelo servidor de prévia). Tudo deve aparecer em verde. Rode sempre que mudar as regras.</p>
+<div id="log"></div>
+<script src="../src/assets/js/regras-trabalhistas.js"></script>
+<script src="../src/assets/js/calculadora.js"></script>
+<script>
+(function(){
+  var log=document.getElementById('log'), falhas=0, total=0;
+  function titulo(t){var h=document.createElement('h3');h.textContent=t;log.appendChild(h);}
+  function linha(ok,txt){total++;if(!ok)falhas++;var d=document.createElement('div');d.className=ok?'ok':'fail';d.textContent=(ok?'OK  ':'FALHOU  ')+txt;log.appendChild(d);}
+  function igual(nome,obtido,esperado){linha(Math.abs(obtido-esperado)<0.011,nome+': obtido '+obtido+', esperado '+esperado);}
+  function verdade(nome,cond){linha(!!cond,nome);}
+  function item(r,nome){var x=r.itens.filter(function(i){return i.nome.indexOf(nome)===0})[0];return x?x.valor:0;}
+  function tem(r,nome){return r.itens.some(function(i){return i.nome.indexOf(nome)===0});}
+  function erro(nome,r){linha(!r.ok,nome+(r.erro?' ('+r.erro+')':''));}
+  var C=Rescisao.calcular;
+
+  titulo('1. Sem justa causa, 4 anos completos, aviso indenizado (R$ 3.000; 01/03/2022 a 31/10/2026)');
+  var a=C({salario:3000,admissao:'2022-03-01',desligamento:'2026-10-31',tipo:'sem_justa',aviso:'indenizado',feriasVencidas:0,saldoFgts:null});
+  igual('saldo de salário (mês completo = 30 dias)',item(a,'Saldo de salário'),3000);
+  igual('aviso indenizado (30 + 4x3 = 42 dias)',item(a,'Aviso-prévio'),4200);
+  igual('13º com projeção do aviso até 12/12 (11/12)',item(a,'13º'),2750);
+  igual('férias proporcionais + 1/3 (9/12)',item(a,'Férias proporcionais'),3000);
+  igual('total bruto',a.total,12950);
+  igual('saldo FGTS estimado (56 meses x 8% x 13/12)',a.fgts.saldoBase,14560);
+  igual('FGTS sobre a rescisão (8% de 3000+2750+4200)',a.fgts.fgtsRescisorio,796);
+  igual('multa de 40%',a.fgts.multa,6142.4);
+  igual('saque 100%',a.fgts.saquePercentual,100);
+
+  titulo('2. Pedido de demissão, aviso trabalhado (R$ 2.000; 15/01/2024 a 10/07/2024)');
+  var b=C({salario:2000,admissao:'2024-01-15',desligamento:'2024-07-10',tipo:'pedido',aviso:'trabalhado',feriasVencidas:0,saldoFgts:0});
+  igual('saldo (10 dias)',item(b,'Saldo de salário'),666.67);
+  igual('13º (6/12)',item(b,'13º'),1000);
+  igual('férias proporcionais (6/12 + 1/3)',item(b,'Férias proporcionais'),1333.33);
+  verdade('sem aviso indenizado',!tem(b,'Aviso-prévio indenizado'));
+  verdade('sem desconto de aviso',!tem(b,'Desconto'));
+  igual('multa zero',b.fgts.multa,0);
+  igual('sem saque',b.fgts.saquePercentual,0);
+
+  titulo('3. Pedido de demissão: aviso não cumprido x dispensado pela empresa');
+  var b2=C({salario:2000,admissao:'2024-01-15',desligamento:'2024-07-10',tipo:'pedido',aviso:'nao_cumprido',feriasVencidas:0,saldoFgts:0});
+  igual('desconto de 30 dias quando não cumprido',item(b2,'Desconto'),-2000);
+  var b3=C({salario:2000,admissao:'2024-01-15',desligamento:'2024-07-10',tipo:'pedido',aviso:'dispensado',feriasVencidas:0,saldoFgts:0});
+  verdade('sem desconto quando a empresa dispensa',!tem(b3,'Desconto'));
+  var b4=C({salario:2000,admissao:'2024-01-15',desligamento:'2024-07-10',tipo:'pedido',aviso:'indenizado',feriasVencidas:0,saldoFgts:0});
+  igual('compatibilidade: "indenizado" no pedido = não cumprido',item(b4,'Desconto'),-2000);
+
+  titulo('4. Justa causa (R$ 2.500; 01/02/2023 a 20/05/2026; 1 período de férias vencidas)');
+  var c=C({salario:2500,admissao:'2023-02-01',desligamento:'2026-05-20',tipo:'justa',aviso:'indenizado',feriasVencidas:1,saldoFgts:0});
+  igual('saldo (20 dias)',item(c,'Saldo de salário'),1666.67);
+  verdade('sem 13º',!tem(c,'13º'));
+  verdade('sem férias proporcionais',!tem(c,'Férias proporcionais'));
+  igual('férias vencidas + 1/3',item(c,'Férias vencidas'),3333.33);
+  verdade('sem aviso',!tem(c,'Aviso-prévio'));
+  igual('sem multa',c.fgts.multa,0);
+
+  titulo('5. Acordo (art. 484-A): aviso pela metade, multa de 20%, saque de 80%');
+  var d=C({salario:3000,admissao:'2022-03-01',desligamento:'2026-10-31',tipo:'acordo',aviso:'indenizado',feriasVencidas:0,saldoFgts:10000});
+  igual('aviso pela metade (42 dias = 2.100)',item(d,'Aviso-prévio'),2100);
+  igual('multa 20% sobre (10.000 + FGTS da rescisão)',d.fgts.multa,(10000+0.08*(3000+2750+2100))*0.2);
+  igual('saque 80%',d.fgts.saquePercentual,80);
+
+  titulo('6. Limites e datas especiais');
+  var e=C({salario:3000,admissao:'2000-01-01',desligamento:'2025-06-30',tipo:'sem_justa',aviso:'indenizado',feriasVencidas:0,saldoFgts:0});
+  igual('aviso limitado a 90 dias (25 anos)',e.avisoDias,90);
+  var f=C({salario:2000,admissao:'2026-03-10',desligamento:'2026-03-20',tipo:'sem_justa',aviso:'trabalhado',feriasVencidas:0,saldoFgts:0});
+  igual('admissão e desligamento no mesmo mês: 11 dias',item(f,'Saldo de salário'),733.33);
+  var g=C({salario:3000,admissao:'2024-01-01',desligamento:'2025-02-28',tipo:'sem_justa',aviso:'trabalhado',feriasVencidas:0,saldoFgts:0});
+  igual('desligamento em 28/02: mês completo = 30 dias',item(g,'Saldo de salário'),3000);
+  var h=C({salario:3000,admissao:'2024-01-01',desligamento:'2025-03-31',tipo:'sem_justa',aviso:'trabalhado',feriasVencidas:0,saldoFgts:0});
+  igual('desligamento em dia 31: 30 dias',item(h,'Saldo de salário'),3000);
+  var k=C({salario:3000,admissao:'2025-12-01',desligamento:'2025-12-20',tipo:'sem_justa',aviso:'indenizado',feriasVencidas:0,saldoFgts:0});
+  igual('projeção do aviso para o ano seguinte (13º: 1/12 de dez + 1/12 de jan)',item(k,'13º'),500);
+
+  titulo('7. Término de contrato por prazo determinado');
+  var m=C({salario:2400,admissao:'2026-01-05',desligamento:'2026-04-04',tipo:'termino',aviso:'indenizado',feriasVencidas:0,saldoFgts:0});
+  verdade('sem aviso-prévio',!tem(m,'Aviso-prévio'));
+  verdade('com 13º e férias proporcionais',tem(m,'13º')&&tem(m,'Férias proporcionais'));
+  igual('sem multa',m.fgts.multa,0);
+  igual('saque 100%',m.fgts.saquePercentual,100);
+  verdade('observação do art. 479',m.avisos.some(function(x){return /479/.test(x)}));
+
+  titulo('8. Validações');
+  erro('salário vazio',C({salario:'',admissao:'2024-01-01',desligamento:'2024-06-01',tipo:'sem_justa'}));
+  erro('salário negativo',C({salario:-10,admissao:'2024-01-01',desligamento:'2024-06-01',tipo:'sem_justa'}));
+  erro('desligamento antes da admissão',C({salario:2000,admissao:'2024-06-01',desligamento:'2024-01-01',tipo:'sem_justa'}));
+  erro('data ausente',C({salario:2000,admissao:'',desligamento:'2024-01-01',tipo:'sem_justa'}));
+  erro('tipo inválido',C({salario:2000,admissao:'2024-01-01',desligamento:'2024-06-01',tipo:'xyz'}));
+
+  var res=document.createElement('h2');res.className=falhas?'fail':'ok';
+  res.textContent=falhas?(falhas+' de '+total+' testes falharam'):('Todos os '+total+' testes passaram');
+  document.body.insertBefore(res,log);document.title=(falhas?'FALHOU':'OK')+' ('+total+' testes)';
+})();
+</script></body></html>

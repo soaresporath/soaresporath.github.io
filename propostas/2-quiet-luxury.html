@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proposta 2 — Quiet Luxury | Soares Porath Advocacia</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="../src/assets/img/favicon.png">
+<link rel="stylesheet" href="shared.css">
+<style>
+@font-face{font-family:"Cormorant";src:url(https://cdn.jsdelivr.net/fontsource/fonts/cormorant-garamond@latest/latin-300-normal.woff2) format("woff2");font-weight:300;font-display:swap}
+@font-face{font-family:"Cormorant";src:url(https://cdn.jsdelivr.net/fontsource/fonts/cormorant-garamond@latest/latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Cormorant";src:url(https://cdn.jsdelivr.net/fontsource/fonts/cormorant-garamond@latest/latin-300-italic.woff2) format("woff2");font-weight:300;font-style:italic;font-display:swap}
+@font-face{font-family:"Jost";src:url(https://cdn.jsdelivr.net/fontsource/fonts/jost@latest/latin-300-normal.woff2) format("woff2");font-weight:300;font-display:swap}
+@font-face{font-family:"Jost";src:url(https://cdn.jsdelivr.net/fontsource/fonts/jost@latest/latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Jost";src:url(https://cdn.jsdelivr.net/fontsource/fonts/jost@latest/latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}
+:root{
+  --navy:#121B30; --navy-2:#1C2742; --champ:#C6AE7E; --bronze:#8F7448; --cream:#F7F3EC; --stone:#ECE6DA;
+  --text:#1E2536; --mute:#6A6F7C; --line:#DCD3C2;
+  --serif:"Cormorant",Georgia,serif; --sans:"Jost",system-ui,sans-serif; --foto-bg:#1C2742;
+}
+body{font-family:var(--sans);font-weight:300;color:var(--text);background:var(--cream);font-size:17px;line-height:1.8}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+h1,h2,h3{font-family:var(--serif);font-weight:300;margin:0;line-height:1.1}
+em{font-style:italic}
+.cap{font:500 11px/1 var(--sans);letter-spacing:.32em;text-transform:uppercase;color:var(--bronze)}
+.cta{display:inline-flex;align-items:center;gap:14px;font:500 12px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;text-decoration:none;color:var(--navy);padding:18px 0;position:relative}
+.cta::after{content:"";position:absolute;left:0;bottom:10px;height:1px;width:100%;background:var(--champ);transform-origin:left;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.cta:hover::after{transform:scaleX(.35)}
+.cta-solid{background:var(--navy);color:var(--cream);padding:20px 34px}
+.cta-solid::after{display:none}
+.cta-solid:hover{background:var(--navy-2)}
+.cta-light{color:var(--cream)}
+
+/* Cabeçalho centralizado */
+header{position:sticky;top:0;z-index:50;background:rgba(247,243,236,.92);backdrop-filter:blur(10px);transition:box-shadow .5s}
+header.rolado{box-shadow:0 1px 0 var(--line)}
+.hd{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:96px;transition:height .5s}
+header.rolado .hd{height:74px}
+.logo{display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none;color:var(--navy)}
+.logo img{width:40px;height:40px;transition:width .5s,height .5s}
+header.rolado .logo img{width:32px;height:32px}
+.logo b{font:400 17px/1 var(--serif);letter-spacing:.34em;text-transform:uppercase;padding-left:.34em}
+.logo small{font:500 8.5px/1 var(--sans);letter-spacing:.5em;color:var(--bronze);padding-left:.5em}
+header.rolado .logo small{display:none}
+.nav-l,.nav-r{display:none;gap:34px;list-style:none;margin:0;padding:0}
+.nav-r{justify-content:flex-end}
+.nav-l a,.nav-r a{font:400 12px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;text-decoration:none;color:var(--text);padding:8px 0;border-bottom:1px solid transparent;transition:border-color .4s}
+.nav-l a:hover,.nav-r a:hover{border-color:var(--champ)}
+.burger{justify-self:end;background:none;border:0;cursor:pointer;font:500 11px/1 var(--sans);letter-spacing:.26em;color:var(--navy);padding:10px 0}
+.hd .logo{grid-column:2}.hd .burger{grid-column:3}.nav-l{grid-column:1}.nav-r{grid-column:3}
+.logo b{white-space:nowrap}
+@media(max-width:600px){.logo b{font-size:14px;letter-spacing:.24em}.logo small{letter-spacing:.4em}}
+.mnav{position:fixed;inset:0;z-index:70;background:var(--cream);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:26px;opacity:0;pointer-events:none;transition:opacity .6s}
+.mnav.aberto{opacity:1;pointer-events:auto}
+.mnav a{font:300 34px/1 var(--serif);text-decoration:none;color:var(--navy)}
+.mnav button{position:absolute;top:30px;right:28px;background:none;border:0;font:500 11px/1 var(--sans);letter-spacing:.26em;cursor:pointer}
+@media(min-width:1040px){.nav-l,.nav-r{display:flex}.burger{display:none}}
+
+/* Primeira tela */
+.hero{display:grid;min-height:calc(100vh - 96px)}
+.hero-txt{display:flex;flex-direction:column;justify-content:center;padding:72px 28px}
+.hero-txt .in{max-width:520px;margin-left:auto;margin-right:auto}
+.hero h1{font-size:clamp(46px,6.4vw,84px);margin:30px 0 28px;color:var(--navy)}
+.hero h1 em{color:var(--bronze)}
+.hero p{color:var(--mute);max-width:40ch;margin:0 0 36px}
+.hero-img{background:var(--navy);display:flex;align-items:center;justify-content:center;padding:56px 28px;position:relative;overflow:hidden}
+.hero-img::after{content:"";position:absolute;inset:28px;border:1px solid rgba(198,174,126,.28);pointer-events:none}
+.arco{width:min(100%,420px);aspect-ratio:3/4.1;border-radius:999px 999px 0 0;overflow:hidden;position:relative}
+.arco .foto{width:100%;height:100%;animation:zoom 18s ease-in-out infinite alternate}
+@keyframes zoom{to{transform:scale(1.06)}}
+.hero-img .legenda{position:absolute;bottom:46px;left:0;right:0;text-align:center;color:rgba(247,243,236,.6);font:500 10px/1 var(--sans);letter-spacing:.36em;text-transform:uppercase}
+@media(min-width:960px){.hero{grid-template-columns:1fr 1fr}.hero-txt{padding:80px 64px}.hero-txt .in{margin-right:0}}
+
+.sec{padding:140px 0}
+.intro{text-align:center;max-width:860px;margin:0 auto}
+.intro .linha{width:1px;height:80px;background:var(--champ);margin:0 auto 46px;transform-origin:top;transform:scaleY(0);transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
+.intro.visivel .linha,.no-js .intro .linha{transform:none}
+.intro p.big{font:300 clamp(26px,3.3vw,40px)/1.4 var(--serif);color:var(--navy);margin:26px 0 30px}
+.intro p.big em{color:var(--bronze)}
+.valores{display:grid;gap:0;margin-top:110px;border-top:1px solid var(--line)}
+.valores div{padding:44px 10px;text-align:center;border-bottom:1px solid var(--line)}
+.valores span{font:300 italic 18px/1 var(--serif);color:var(--bronze)}
+.valores h3{font-size:32px;color:var(--navy);margin:14px 0 12px}
+.valores p{margin:0 auto;color:var(--mute);font-size:15.5px;max-width:30ch}
+@media(min-width:900px){.valores{grid-template-columns:repeat(3,1fr)}.valores div{border-bottom:0}.valores div+div{border-left:1px solid var(--line)}}
+
+.head{text-align:center;margin-bottom:80px}
+.head h2{font-size:clamp(38px,4.6vw,60px);color:var(--navy);margin-top:24px}
+.tiles{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.tile{background:var(--cream);padding:46px 40px;text-decoration:none;color:inherit;position:relative;transition:background .6s}
+.tile::before{content:"";position:absolute;left:40px;top:0;height:1px;width:0;background:var(--champ);transition:width .8s cubic-bezier(.2,.7,.2,1)}
+.tile:hover{background:#FBF8F2}
+.tile:hover::before{width:calc(100% - 80px)}
+.tile .n{font:300 italic 16px/1 var(--serif);color:var(--bronze)}
+.tile h3{font-size:30px;color:var(--navy);margin:18px 0 14px}
+.tile p{margin:0;color:var(--mute);font-size:15.5px}
+.tile .mais{display:inline-block;margin-top:26px;font:500 10.5px/1 var(--sans);letter-spacing:.28em;text-transform:uppercase;color:var(--bronze)}
+.tile-av{background:var(--navy);color:var(--cream)}
+.tile-av:hover{background:var(--navy-2)}
+.tile-av h3{color:var(--cream);font-size:clamp(32px,3.4vw,44px)}
+.tile-av p{color:rgba(247,243,236,.7);max-width:46ch}
+.tile-av .n,.tile-av .mais{color:var(--champ)}
+.tile-av svg{position:absolute;right:30px;bottom:24px;width:46%;max-width:300px;opacity:.9}
+@media(min-width:760px){.tiles{grid-template-columns:repeat(2,1fr)}.tile-av{grid-column:span 2;min-height:340px}.tile:last-child{grid-column:span 2}}
+@media(min-width:1040px){.tiles{grid-template-columns:repeat(3,1fr)}.tile-av{grid-column:span 2;grid-row:span 2}.tile:last-child{grid-column:auto}}
+
+.socios{display:grid;gap:80px;justify-content:center}
+.socio{text-align:center}
+.socio .arco{width:min(100%,340px);margin:0 auto}
+.socio h3{font-size:32px;color:var(--navy);margin:34px 0 8px}
+.socio .oab{font:500 10.5px/1 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--bronze)}
+.socio p{color:var(--mute);max-width:36ch;margin:18px auto 6px;font-size:15.5px}
+@media(min-width:900px){.socios{grid-template-columns:repeat(2,minmax(0,400px));gap:120px}}
+
+.ferramenta{background:var(--navy);color:var(--cream);text-align:center}
+.ferramenta h2{font-size:clamp(38px,4.6vw,58px);margin:24px 0 22px}
+.ferramenta p{color:rgba(247,243,236,.7);max-width:52ch;margin:0 auto 38px}
+.ferramenta .cap{color:var(--champ)}
+.ferramenta .cta{color:var(--cream)}
+
+.conteudos{display:grid;gap:56px}
+.conteudo{text-decoration:none;color:inherit;border-top:1px solid var(--line);padding-top:30px}
+.conteudo h3{font-size:28px;line-height:1.25;color:var(--navy);margin:18px 0 16px;transition:color .5s}
+.conteudo p{color:var(--mute);font-size:15.5px;margin:0 0 18px}
+.conteudo:hover h3{color:var(--bronze)}
+@media(min-width:900px){.conteudos{grid-template-columns:repeat(3,1fr)}}
+
+.contato{background:var(--stone)}
+.info{display:grid;gap:0;margin-top:70px;border-top:1px solid var(--line)}
+.info div{text-align:center;padding:40px 20px;border-bottom:1px solid var(--line)}
+.info h4{font:500 10.5px/1 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--bronze);margin:0 0 16px}
+.info p{margin:0;font:300 22px/1.4 var(--serif);color:var(--navy)}
+.info a{text-decoration:none}
+@media(min-width:900px){.info{grid-template-columns:repeat(3,1fr)}.info div{border-bottom:0}.info div+div{border-left:1px solid var(--line)}}
+
+footer{background:var(--navy);color:rgba(247,243,236,.7);padding:110px 0 44px;text-align:center;font-size:15px}
+footer .logo{color:var(--cream);margin-bottom:28px}
+footer .logo img{width:52px;height:52px;border-radius:50%;box-shadow:0 0 0 1px var(--champ)}
+footer .resumo{max-width:52ch;margin:0 auto 64px;font:300 20px/1.6 var(--serif);color:rgba(247,243,236,.8)}
+.fcols{display:grid;gap:40px;text-align:center;border-top:1px solid rgba(198,174,126,.2);padding-top:56px}
+.fcols h4{font:500 10.5px/1 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--champ);margin:0 0 18px}
+.fcols ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.fcols a{text-decoration:none;color:rgba(247,243,236,.85)}
+.fbot{margin-top:64px;font-size:12.5px;letter-spacing:.06em;color:rgba(247,243,236,.45)}
+.fbot a{color:inherit}
+@media(min-width:900px){.fcols{grid-template-columns:repeat(3,1fr)}}
+
+.wa{position:fixed;right:22px;bottom:22px;z-index:60;display:flex;align-items:center;gap:0;height:52px;padding:0 15px;border-radius:999px;background:var(--cream);border:1px solid var(--champ);color:var(--navy);text-decoration:none;box-shadow:0 10px 30px rgba(18,27,48,.18);font:500 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;overflow:hidden}
+.wa span{max-width:0;opacity:0;white-space:nowrap;transition:max-width .6s,opacity .6s,margin .6s}
+.wa:hover span{max-width:220px;opacity:1;margin-left:12px}
+
+.js [data-reveal]{opacity:0;transform:translateY(16px);transition:opacity 1.6s cubic-bezier(.2,.7,.2,1),transform 1.6s cubic-bezier(.2,.7,.2,1)}
+.js [data-reveal].visivel{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<header data-header>
+  <div class="wrap hd">
+    <ul class="nav-l"><li><a href="#escritorio">Escritório</a></li><li><a href="#atuacao">Atuação</a></li><li><a href="#socios">Sócios</a></li></ul>
+    <a class="logo" href="#topo" aria-label="Soares Porath Advocacia — início"><img src="../src/assets/img/emblema.png" alt=""><b>Soares Porath</b><small>ADVOCACIA</small></a>
+    <ul class="nav-r"><li><a href="#ferramentas">Ferramentas</a></li><li><a href="#conteudos">Conteúdos</a></li><li><a href="#contato">Contato</a></li></ul>
+    <button class="burger" data-menu-toggle aria-expanded="false">MENU</button>
+  </div>
+</header>
+<div class="mnav" data-menu>
+  <button data-menu-toggle>FECHAR</button>
+  <a href="#escritorio">Escritório</a><a href="#atuacao">Atuação</a><a href="#socios">Sócios</a><a href="#ferramentas">Ferramentas</a><a href="#conteudos">Conteúdos</a><a href="#contato">Contato</a>
+</div>
+
+<section class="hero" id="topo">
+  <div class="hero-txt">
+    <div class="in" data-reveal>
+      <span class="cap">Soares Porath Advocacia</span>
+      <h1>Cada caso merece <em>atenção singular.</em></h1>
+      <p>Advocacia estratégica, conduzida com discrição, clareza e proximidade, para pessoas e famílias em todo o território nacional.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:30px;align-items:center">
+        <a class="cta cta-solid" href="#atuacao">Conheça nossa atuação</a>
+        <a class="cta" href="https://wa.me/5511989443124" target="_blank" rel="noopener">Fale com nossos advogados</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-img">
+    <div class="arco" data-reveal><div class="foto" data-label="Fotografia institucional dos sócios"><img src="../src/assets/img/socios/socios.jpg" alt="Os sócios do escritório"></div></div>
+    <div class="legenda">Lapa · São Paulo</div>
+  </div>
+</section>
+
+<section class="sec" id="escritorio">
+  <div class="wrap">
+    <div class="intro" data-reveal>
+      <div class="linha"></div>
+      <span class="cap">O escritório</span>
+      <p class="big">Unimos técnica jurídica e <em>sensibilidade</em> para conduzir questões que são, antes de tudo, importantes para a vida de quem nos procura.</p>
+      <a class="cta" href="#">Nossa história</a>
+    </div>
+    <div class="valores">
+      <div data-reveal><span>i.</span><h3>Estratégia</h3><p>Diagnóstico técnico e escolha cuidadosa do caminho mais adequado.</p></div>
+      <div data-reveal><span>ii.</span><h3>Transparência</h3><p>Informação clara sobre etapas, riscos e possibilidades.</p></div>
+      <div data-reveal><span>iii.</span><h3>Personalização</h3><p>Condução que respeita a realidade de cada cliente.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="atuacao" style="padding-top:40px">
+  <div class="wrap">
+    <div class="head" data-reveal><span class="cap">Áreas de atuação</span><h2>Onde atuamos</h2></div>
+    <div class="tiles">
+      <a class="tile tile-av" href="#" data-reveal>
+        <span class="n">Em destaque</span>
+        <h3>Direito do Aeronauta<br><em>e da Aviação</em></h3>
+        <p>Planejamento previdenciário do profissional da aviação, análise de períodos contributivos, vínculos nacionais e internacionais e questões civis ligadas à atividade aeronáutica.</p>
+        <span class="mais">Conhecer a área</span>
+        <svg viewBox="0 0 300 140" aria-hidden="true"><path d="M4 128 C 90 30, 200 10, 296 40" stroke="#C6AE7E" stroke-width="1" fill="none" stroke-dasharray="3 6"/><circle cx="4" cy="128" r="3" fill="#C6AE7E"/><path d="M286 34 l12 6 -12 4 2 -5z" fill="#C6AE7E"/></svg>
+      </a>
+      <a class="tile" href="#" data-reveal><span class="n">i.</span><h3>Família e Sucessões</h3><p>Divórcio, guarda, alimentos, paternidade, inventário e planejamento sucessório.</p><span class="mais">Conhecer a área</span></a>
+      <a class="tile" href="#" data-reveal><span class="n">ii.</span><h3>Previdenciário</h3><p>Aposentadorias, planejamento, aposentadoria especial, incapacidade, pensão por morte, BPC/LOAS, revisões e CNIS.</p><span class="mais">Conhecer a área</span></a>
+      <a class="tile" href="#" data-reveal><span class="n">iii.</span><h3>Cível e Consumidor</h3><p>Responsabilidade civil, indenizações, erro médico e relações de consumo.</p><span class="mais">Conhecer a área</span></a>
+      <a class="tile" href="#" data-reveal><span class="n">iv.</span><h3>Direito Educacional</h3><p>Contratos, mensalidades, matrícula e financiamento estudantil.</p><span class="mais">Conhecer a área</span></a>
+      <a class="tile" href="#" data-reveal><span class="n">v.</span><h3>Trabalhista</h3><p>Verbas rescisórias, rescisão indireta, jornada e vínculo de emprego.</p><span class="mais">Conhecer a área</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="socios" style="background:#FBF8F2">
+  <div class="wrap">
+    <div class="head" data-reveal><span class="cap">Sócios</span><h2>À frente do escritório</h2></div>
+    <div class="socios">
+      <article class="socio" data-reveal>
+        <div class="arco"><div class="foto" data-label="Foto · Dra. Bianca"><img src="../src/assets/img/socios/bianca.jpg" alt="Dra. Bianca Garcia Porath"></div></div>
+        <h3>Dra. Bianca Garcia Porath</h3><div class="oab">OAB/SP 528.825</div>
+        <p>Escuta ativa, empatia e estratégia em Família e Sucessões, Previdenciário, Cível e Educacional.</p>
+        <a class="cta" href="#">Ver perfil</a>
+      </article>
+      <article class="socio" data-reveal>
+        <div class="arco"><div class="foto" data-label="Foto · Dr. Matheus"><img src="../src/assets/img/socios/matheus.jpg" alt="Dr. Matheus Soares Pereira da Silva"></div></div>
+        <h3>Dr. Matheus Soares Pereira da Silva</h3><div class="oab">OAB/SP 534.679</div>
+        <p>Ética e clareza em Família e Sucessões, Cível, Educacional e Trabalhista.</p>
+        <a class="cta" href="#">Ver perfil</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec ferramenta" id="ferramentas">
+  <div class="wrap" data-reveal>
+    <span class="cap">Ferramentas jurídicas</span>
+    <h2>Calculadora de <em>rescisão trabalhista</em></h2>
+    <p>Uma estimativa clara das verbas da saída do emprego: aviso-prévio proporcional, 13º, férias e FGTS. Para circunstâncias específicas, nossa equipe faz a análise individual.</p>
+    <a class="cta cta-light" href="#">Fazer uma simulação</a>
+  </div>
+</section>
+
+<section class="sec" id="conteudos">
+  <div class="wrap">
+    <div class="head" data-reveal><span class="cap">Conteúdos</span><h2>Leituras para decisões informadas</h2></div>
+    <div class="conteudos">
+      <a class="conteudo" href="#" data-reveal><span class="cap">Direito do Aeronauta</span><h3>O aeronauta e a aposentadoria: particularidades da trajetória na aviação</h3><p>Períodos no exterior, natureza da atividade e histórico contributivo.</p><span class="cap" style="color:var(--mute)">Leitura de 8 min</span></a>
+      <a class="conteudo" href="#" data-reveal><span class="cap">Previdenciário</span><h3>Planejamento previdenciário começa pela leitura atenta do CNIS</h3><p>Por que o histórico de contribuições merece análise antes do pedido.</p><span class="cap" style="color:var(--mute)">Leitura de 6 min</span></a>
+      <a class="conteudo" href="#" data-reveal><span class="cap">Família e Sucessões</span><h3>Guarda compartilhada e a rotina dos filhos após o divórcio</h3><p>Aspectos que costumam orientar a organização da convivência.</p><span class="cap" style="color:var(--mute)">Leitura de 7 min</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec contato" id="contato">
+  <div class="wrap">
+    <div class="head" data-reveal style="margin-bottom:0"><span class="cap">Contato</span><h2>Entre em contato com o escritório</h2>
+      <p style="color:var(--mute);max-width:48ch;margin:22px auto 34px">Será um prazer conhecer a sua situação e conversar sobre os caminhos possíveis.</p>
+      <a class="cta cta-solid" href="https://wa.me/5511989443124" target="_blank" rel="noopener">Converse com nossa equipe</a>
+    </div>
+    <div class="info">
+      <div data-reveal><h4>WhatsApp</h4><p><a href="https://wa.me/5511989443124">(11) 98944-3124</a></p></div>
+      <div data-reveal><h4>E-mail</h4><p>institucional <span style="font-size:15px;color:var(--mute)">(a confirmar)</span></p></div>
+      <div data-reveal><h4>Endereço</h4><p>Av. Nicolas Boer, 399<br>Lapa · São Paulo/SP</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="#topo"><img src="../src/assets/img/emblema.png" alt=""><b>Soares Porath</b><small>ADVOCACIA</small></a>
+    <p class="resumo">Advocacia estratégica em Família e Sucessões, Previdenciário, Direito do Aeronauta, Cível, Educacional e Trabalhista, em todo o território nacional.</p>
+    <div class="fcols">
+      <div><h4>Atuação</h4><ul><li><a href="#">Família e Sucessões</a></li><li><a href="#">Previdenciário</a></li><li><a href="#">Direito do Aeronauta</a></li><li><a href="#">Cível e Consumidor</a></li><li><a href="#">Direito Educacional</a></li><li><a href="#">Trabalhista</a></li></ul></div>
+      <div><h4>Escritório</h4><ul><li><a href="#">O escritório</a></li><li><a href="#">Sócios</a></li><li><a href="#">Conteúdos</a></li><li><a href="#">Calculadora</a></li><li><a href="#">Trabalhe conosco</a></li></ul></div>
+      <div><h4>Contato</h4><ul><li><a href="https://wa.me/5511989443124">(11) 98944-3124</a></li><li>E-mail institucional</li><li>Av. Nicolas Boer, 399 – Lapa<br>São Paulo/SP</li></ul></div>
+    </div>
+    <p class="fbot">© 2026 Soares Porath Advocacia · OAB/SP 528.825 · OAB/SP 534.679<br><a href="#">Política de Privacidade</a> · <a href="#">Cuidado com Golpes</a></p>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/5511989443124" target="_blank" rel="noopener" aria-label="WhatsApp do escritório"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3a.5.5 0 0 0 0-.5c-.1-.1-.6-1.3-.8-1.8s-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"/></svg><span>Fale conosco</span></a>
+<a class="proposta-tag" href="index.html">← Proposta 2 · Quiet Luxury</a>
+<script src="shared.js"></script>
+</body>
+</html>

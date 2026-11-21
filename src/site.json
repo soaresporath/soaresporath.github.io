@@ -1,0 +1,22 @@
+{
+  "nome": "Soares Porath Advocacia",
+  "slogan": "Advocacia estratégica para proteger o que é importante para você.",
+  "siteUrl": "https://soaresporath.github.io",
+  "noindex": false,
+  "telefone": "(11) 98944-3124",
+  "telefoneE164": "5511989443124",
+  "whatsappLink": "https://wa.me/5511989443124",
+  "mensagemWhatsappPadrao": "Olá! Vim pelo site da Soares Porath Advocacia e gostaria de conversar com um advogado do escritório.",
+  "email": "soaresporath.adv@gmail.com",
+  "instagram": "@soaresporath.adv",
+  "instagramUrl": "https://www.instagram.com/soaresporath.adv/",
+  "enderecoLinha": "Avenida Nicolas Boer, 399, Perdizes, São Paulo/SP",
+  "enderecoCurto": "Av. Nicolas Boer, 399, Perdizes, São Paulo/SP",
+  "enderecoRua": "Avenida Nicolas Boer, 399",
+  "enderecoCidade": "São Paulo",
+  "enderecoUF": "SP",
+  "latitude": "-23.5195894",
+  "longitude": "-46.6795729",
+  "mapsLink": "https://www.google.com/maps/search/?api=1&query=-23.5195894,-46.6795729",
+  "mapsEmbed": "https://maps.google.com/maps?q=-23.5195894,-46.6795729&z=16&output=embed"
+}

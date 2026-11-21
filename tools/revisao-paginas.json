@@ -1,0 +1,31 @@
+{
+  "paginas": [
+    { "arquivo": "index.html", "nome": "Início" },
+    { "arquivo": "missao-visao-valores.html", "nome": "Missão, Visão e Valores (com Nossa história)" },
+    { "arquivo": "socios.html", "nome": "Sócios" },
+    { "arquivo": "socios/bianca-garcia-porath.html", "nome": "Sócia: Dra. Bianca Garcia Porath" },
+    { "arquivo": "socios/matheus-soares-pereira-da-silva.html", "nome": "Sócio: Dr. Matheus Soares Pereira da Silva" },
+    { "arquivo": "areas/index.html", "nome": "Áreas de atuação (lista)" },
+    { "arquivo": "areas/familia-sucessoes.html", "nome": "Área: Família e Sucessões" },
+    { "arquivo": "areas/previdenciario.html", "nome": "Área: Previdenciário" },
+    { "arquivo": "areas/aeronauta-aviacao.html", "nome": "Área: Direito do Aeronauta e da Aviação" },
+    { "arquivo": "areas/civel-consumidor.html", "nome": "Área: Cível e Consumidor" },
+    { "arquivo": "areas/educacional.html", "nome": "Área: Direito Educacional" },
+    { "arquivo": "areas/trabalhista.html", "nome": "Área: Trabalhista" },
+    { "arquivo": "calculadora.html", "nome": "Calculadora de rescisão" },
+    { "arquivo": "artigos/index.html", "nome": "Conteúdos (lista)" },
+    { "arquivo": "artigos/guarda-compartilhada.html", "nome": "Conteúdo: Guarda compartilhada" },
+    { "arquivo": "artigos/cnis-planejamento-previdenciario.html", "nome": "Conteúdo: CNIS e planejamento previdenciário" },
+    { "arquivo": "artigos/aeronauta-aposentadoria.html", "nome": "Conteúdo: O aeronauta e a aposentadoria" },
+    { "arquivo": "artigos/cobranca-indevida-devolucao-em-dobro.html", "nome": "Conteúdo: Cobrança indevida" },
+    { "arquivo": "artigos/reajuste-mensalidade-escolar.html", "nome": "Conteúdo: Reajuste de mensalidade escolar" },
+    { "arquivo": "artigos/verbas-rescisorias.html", "nome": "Conteúdo: Verbas rescisórias" },
+    { "arquivo": "contato.html", "nome": "Contato" },
+    { "arquivo": "trabalhe-conosco.html", "nome": "Trabalhe conosco" },
+    { "arquivo": "obrigado.html", "nome": "Candidatura enviada" },
+    { "arquivo": "privacidade.html", "nome": "Política de Privacidade" },
+    { "arquivo": "cuidado-com-golpes.html", "nome": "Cuidado com Golpes" }
+  ],
+  "titulo": "Soares Porath Advocacia · Revisão do site",
+  "intro": "Este documento reúne todas as páginas do site, na ordem do menu, para revisão. Cada página começa em uma folha nova, com uma faixa cinza indicando o nome e o número. Anote o que quiser trocar (texto, informação, ordem) e me diga o número ou o nome da página. Nada aqui foi publicado: é a versão de prévia, no computador."
+}

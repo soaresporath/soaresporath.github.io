@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://soaresporath.github.io/sitemap.xml

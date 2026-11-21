@@ -1,0 +1,16 @@
+/* Elementos comuns às páginas internas da proposta 3 */
+.topo{padding:160px 0 30px}
+.topo h1{font-size:clamp(32px,4vw,50px);margin:20px 0 18px;max-width:24ch}
+.topo p.lead{color:var(--mute);max-width:62ch;font-size:18px;margin:0}
+.rascunho{display:inline-block;margin-top:22px;font:500 12.5px/1.4 var(--sans);color:#F2D9A0;background:rgba(212,184,114,.08);border:1px dashed rgba(212,184,114,.45);border-radius:10px;padding:8px 12px;text-align:left}
+.tit{margin-bottom:36px;max-width:70ch}
+.tit h2{font-size:clamp(28px,3.2vw,40px);margin:16px 0 12px}
+.tit p{color:var(--mute);margin:0;font-size:17px}
+.prosa{max-width:78ch}
+.prosa h2{font-size:clamp(24px,2.4vw,30px);margin:42px 0 12px}
+.prosa h2:first-child{margin-top:0}
+.prosa p,.prosa li{color:#D4DAE8;font-size:16.5px}
+.prosa ul{padding-left:20px}
+.prosa li{margin-bottom:8px}
+.prosa a{color:var(--gold-2)}
+.prosa strong{color:var(--text)}

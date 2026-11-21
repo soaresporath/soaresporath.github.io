@@ -1,0 +1,51 @@
+<!--@title: Calculadora de rescisão trabalhista-->
+<!--@description: Calcule uma estimativa das verbas rescisórias: saldo de salário, aviso-prévio proporcional, 13º, férias com 1/3, FGTS e multa, conforme o tipo de desligamento. Nada do que você digita é enviado ou guardado.-->
+<!--@nav: calculadora-->
+<!--@scripts: regras-trabalhistas.js, calculadora.js, calculadora-ui.js-->
+<!--@wa: Olá! Usei a calculadora do site e gostaria de conversar com um advogado sobre a minha rescisão.-->
+<section class="topo">
+  <div class="wrap" data-reveal>
+    <p class="migalha"><a href="{{ROOT}}index.html">Início</a> › Calculadora de rescisão</p>
+    <span class="chip"><i></i>Ferramenta jurídica</span>
+    <h1>Calcule sua <span class="grad">rescisão.</span></h1>
+    <p class="lead">Preencha os dados e veja uma estimativa das verbas da saída do emprego. O cálculo é feito no seu próprio navegador: nada do que você digita é enviado ou guardado.</p>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:40px">
+  <div class="wrap">
+    {{PARTIAL:calculadora}}
+    <div class="calc-info">
+      <div class="card" data-reveal>
+        <h3>O que a calculadora considera</h3>
+        <ul>
+          <li><strong>Saldo de salário:</strong> dias trabalhados no mês do desligamento, com base de 30 dias.</li>
+          <li><strong>Aviso-prévio:</strong> 30 dias mais 3 por ano completo, até 90 dias (Lei nº 12.506/2011). No acordo, metade do aviso indenizado.</li>
+          <li><strong>13º salário e férias proporcionais com 1/3:</strong> contando, quando indenizado, o período do aviso-prévio.</li>
+          <li><strong>Férias vencidas com 1/3:</strong> períodos completos informados por você.</li>
+          <li><strong>FGTS:</strong> depósito sobre as verbas da rescisão e multa de 40% ou 20%, conforme o tipo de desligamento.</li>
+        </ul>
+      </div>
+      <div class="card" data-reveal>
+        <h3>O que fica de fora</h3>
+        <ul>
+          <li>Descontos de INSS e de Imposto de Renda (os valores são brutos).</li>
+          <li>Horas extras, adicionais, comissões e diferenças salariais.</li>
+          <li>Estabilidades e indenizações específicas, como a do art. 479 da CLT.</li>
+          <li>Pagamento em dobro de férias vencidas fora do prazo.</li>
+          <li>Seguro-desemprego e correção do saldo do FGTS.</li>
+        </ul>
+        <p style="margin:14px 0 0">A estimativa é informativa e não substitui a análise individualizada dos documentos do contrato.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:10px">
+  <div class="wrap"><div class="cta-final centro" data-reveal>
+    <span class="chip"><i></i>Trabalhista</span>
+    <h2>Quer entender melhor a sua rescisão?</h2>
+    <p>Nossa equipe pode analisar os documentos do seu contrato e verificar se todos os seus direitos foram considerados.</p>
+    <div class="acoes"><a class="btn btn-gold" href="{{WA}}" target="_blank" rel="noopener" data-evento="whatsapp_cta">Quero conversar com um advogado</a><a class="btn btn-ghost" href="{{ROOT}}areas/trabalhista.html">Conheça a área trabalhista</a></div>
+  </div></div>
+</section>

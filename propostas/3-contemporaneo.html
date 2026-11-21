@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Soares Porath Advocacia</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="../src/assets/img/favicon.png">
+<link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="p3.css">
+<style>
+/* primeira tela (título menor, como pedido) */
+.hero{padding:150px 0 80px;min-height:92vh;display:flex;align-items:center}
+.hero-grid{display:grid;gap:44px;align-items:center;width:100%}
+.hero h1{font-size:clamp(32px,4.2vw,54px);margin:22px 0 18px;max-width:20ch}
+.hero p.lead{color:var(--mute);font-size:18px;max-width:48ch;margin:0 0 28px}
+.busca{border-radius:22px;padding:22px;background:var(--glass);border:1px solid var(--stroke);backdrop-filter:blur(14px)}
+.busca label{font:500 13px/1 var(--sans);color:var(--mute);display:block;margin-bottom:14px}
+.temas{display:flex;flex-wrap:wrap;gap:8px}
+.tema{font:500 14px/1 var(--sans);padding:11px 15px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid var(--stroke);color:var(--text);cursor:pointer;transition:all .2s}
+.tema:hover{border-color:rgba(212,184,114,.4)}
+.tema[aria-pressed="true"]{background:rgba(212,184,114,.14);border-color:var(--gold);color:var(--gold-2)}
+.painel{position:relative;border-radius:26px;padding:30px;background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid var(--stroke);backdrop-filter:blur(16px);overflow:hidden;min-height:380px;display:flex;flex-direction:column}
+.painel::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(140deg,rgba(212,184,114,.6),transparent 40%,transparent 70%,rgba(212,184,114,.35));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.painel .tag{font:500 12px/1 var(--sans);color:var(--gold);letter-spacing:.14em;text-transform:uppercase}
+.painel h3{font-size:26px;margin:14px 0 12px}
+.painel p{color:var(--mute);margin:0 0 18px}
+.painel ul{list-style:none;padding:0;margin:0 0 24px;display:grid;gap:8px}
+.painel li{display:flex;gap:10px;color:var(--text);font-size:15px;text-align:left}
+.painel li::before{content:"";flex:0 0 6px;height:6px;margin-top:9px;border-radius:50%;background:var(--gold)}
+.painel .acoes{margin-top:auto;display:flex;flex-wrap:wrap;gap:10px}
+.troca{animation:entra .45s cubic-bezier(.2,.7,.2,1)}
+@keyframes entra{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media(min-width:1000px){.hero-grid{grid-template-columns:1.1fr .9fr}}
+
+/* escritório */
+.manif{display:grid;gap:18px}
+.manif .big{border-radius:26px;padding:40px;background:linear-gradient(140deg,#15224A,#0C1430);border:1px solid var(--stroke)}
+.manif .big p{font:400 clamp(18px,1.7vw,21px)/1.75 var(--sans);color:#DDE3F0;margin:0 0 24px}
+.manif .val b{font:500 13px/1 var(--sans);color:var(--gold);letter-spacing:.14em}
+.manif .val h3{font-size:22px;margin:12px 0 8px}
+.manif .val p{margin:0;color:var(--mute);font-size:15px}
+@media(min-width:900px){.manif{grid-template-columns:repeat(3,1fr)}.manif .big{grid-column:span 3}}
+
+/* áreas: todas do mesmo tamanho, cada uma com sua ilustração */
+.areas{display:grid;gap:16px;grid-auto-rows:1fr}
+.area{position:relative;border-radius:24px;padding:28px;background:var(--glass);border:1px solid var(--stroke);text-decoration:none;color:inherit;overflow:hidden;display:flex;flex-direction:column;transition:border-color .3s,transform .3s}
+.area::after{content:"";position:absolute;inset:0;background:radial-gradient(380px circle at var(--mx,50%) var(--my,50%),rgba(212,184,114,.13),transparent 45%);opacity:0;transition:opacity .3s;pointer-events:none}
+.area:hover{border-color:rgba(212,184,114,.38);transform:translateY(-3px)}
+.area:hover::after{opacity:1}
+.area .ilus{height:96px;margin:-4px 0 14px}
+.area .ilus svg{height:100%;width:auto;overflow:visible}
+.area .ilus svg *{stroke:var(--gold);stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:stroke .3s}
+.area .ilus svg .fill{fill:var(--gold);stroke:none}
+.area .ilus svg .tenue{stroke:rgba(212,184,114,.35)}
+.area:hover .ilus svg *{stroke:var(--gold-2)}
+.area h3{font-size:23px;margin:0 0 10px}
+.area p{color:var(--mute);margin:0;font-size:15px}
+.area .go{margin-top:auto;padding-top:20px;font:600 13.5px/1 var(--sans);color:var(--gold)}
+.rota{stroke-dasharray:2 6;animation:voo 14s linear infinite}
+@keyframes voo{to{stroke-dashoffset:-160}}
+@media(min-width:720px){.areas{grid-template-columns:repeat(2,1fr)}}
+
+/* calculadora completa na própria página */
+.calc{display:grid;gap:18px;align-items:start}
+.form label,.form legend{display:block;font:500 13.5px/1.3 var(--sans);color:var(--mute);margin:0 0 8px;padding:0}
+.form .campo{margin-bottom:16px}
+.form input,.form select{width:100%;min-height:50px;padding:10px 14px;border-radius:12px;border:1px solid var(--stroke);background:rgba(255,255,255,.05);color:var(--text);font:500 15.5px/1.2 var(--sans);color-scheme:dark}
+.form input:focus,.form select:focus{outline:2px solid rgba(212,184,114,.6);border-color:transparent}
+.form select option{background:#0C1430}
+.form .dupla{display:grid;gap:14px}
+@media(min-width:560px){.form .dupla{grid-template-columns:1fr 1fr}}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.seg label{margin:0}
+.seg input{position:absolute;opacity:0;width:1px;height:1px}
+.seg span{display:flex;align-items:center;justify-content:center;min-height:48px;border-radius:12px;border:1px solid var(--stroke);background:rgba(255,255,255,.04);cursor:pointer;font:500 14px/1.2 var(--sans);color:var(--text);text-align:center;padding:6px 10px}
+.seg input:checked+span{border-color:var(--gold);background:rgba(212,184,114,.14);color:var(--gold-2)}
+.seg input:focus-visible+span{outline:2px solid var(--gold)}
+fieldset{border:0;margin:0 0 16px;padding:0}
+.erro{color:#F2B8AE;min-height:1.3em;margin:4px 0 12px;font-weight:500;text-align:left}
+.res .vazio p{color:var(--mute)}
+.res .total{font:500 clamp(40px,5vw,58px)/1 var(--head);letter-spacing:-.03em;margin:14px 0 8px}
+.res .sub{color:var(--mute);font-size:14px;margin:0 0 18px;text-align:left}
+.res table{width:100%;border-collapse:collapse;font-size:15px;margin:0 0 6px}
+.res td{padding:11px 0;border-top:1px solid var(--stroke);vertical-align:top}
+.res td:last-child{text-align:right;white-space:nowrap;font-weight:600;padding-left:12px}
+.res td small{display:block;color:var(--mute);font-weight:400;font-size:12.5px}
+.res .neg td:last-child{color:#F2B8AE}
+.res h4{font:600 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:22px 0 6px}
+.res ul{padding-left:18px;margin:6px 0 0;color:var(--mute);font-size:14px}
+.convite{margin-top:24px;border-radius:18px;padding:22px;background:linear-gradient(150deg,rgba(212,184,114,.16),rgba(212,184,114,.04));border:1px solid rgba(212,184,114,.3)}
+.convite p{margin:0 0 14px}
+.convite label{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--mute);margin:0 0 16px;text-align:left}
+.convite input{margin-top:3px;width:17px;height:17px;accent-color:var(--gold)}
+.nota{color:var(--mute);font-size:12.5px;margin:16px 0 0}
+@media(min-width:1000px){.calc{grid-template-columns:1fr 1.05fr}}
+
+/* sócios */
+.socios{display:grid;gap:18px}
+.socio{border-radius:26px;overflow:hidden;background:var(--glass);border:1px solid var(--stroke);display:grid}
+.socio .foto{aspect-ratio:4/3.3}
+.socio .txt{padding:26px 28px 30px}
+.socio h3{font-size:24px}
+.socio .oab{color:var(--gold);font:500 13px/1 var(--sans);letter-spacing:.1em;margin:10px 0 14px}
+.socio p{color:var(--mute);margin:0 0 18px;font-size:15px}
+@media(min-width:900px){.socios{grid-template-columns:1fr 1fr}}
+
+.posts{display:grid;gap:18px}
+.post{border-radius:22px;padding:28px;background:var(--glass);border:1px solid var(--stroke);text-decoration:none;color:inherit;display:flex;flex-direction:column;min-height:240px;transition:border-color .3s}
+.post:hover{border-color:rgba(212,184,114,.35)}
+.post h3{font-size:21px;line-height:1.3;margin:16px 0 12px}
+.post p{color:var(--mute);font-size:15px;margin:0}
+.post .meta{margin-top:auto;padding-top:20px;color:var(--mute);font-size:13px}
+@media(min-width:900px){.posts{grid-template-columns:repeat(3,1fr)}}
+
+.cta-final{border-radius:30px;padding:56px 34px;text-align:center;background:radial-gradient(600px 300px at 50% 0%,rgba(212,184,114,.22),transparent 70%),linear-gradient(160deg,#15224A,#0A1022);border:1px solid rgba(212,184,114,.25)}
+.cta-final h2{font-size:clamp(30px,4vw,48px);max-width:18ch;margin:18px auto 16px}
+.cta-final p{color:var(--mute);max-width:46ch;margin:0 auto 30px}
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true"><div class="orb"></div></div>
+
+<header data-header>
+  <div class="wrap"><div class="bar">
+    <a class="logo" href="3-contemporaneo.html" aria-label="Soares Porath Advocacia, página inicial"><img src="../src/assets/img/emblema-96.png" srcset="../src/assets/img/emblema-96.png 1x, ../src/assets/img/emblema-192.png 2x" alt=""><span><b>Soares Porath</b><small>ADVOCACIA</small></span></a>
+    <ul class="links"><li><a href="#escritorio">Escritório</a></li><li><a href="3-visao-valores.html">Missão, Visão e Valores</a></li><li><a href="#atuacao">Atuação</a></li><li><a href="#calculadora">Calculadora</a></li><li><a href="#socios">Sócios</a></li><li><a href="#conteudos">Conteúdos</a></li></ul>
+    <a class="btn btn-gold" href="https://wa.me/5511989443124" target="_blank" rel="noopener">Fale com nossos advogados</a>
+    <button class="burger" data-menu-toggle aria-expanded="false" aria-label="Abrir menu">☰</button>
+  </div></div>
+</header>
+<nav class="mnav" data-menu aria-label="Menu"><a href="#escritorio">Escritório</a><a href="3-visao-valores.html">Missão, Visão e Valores</a><a href="#atuacao">Atuação</a><a href="#calculadora">Calculadora</a><a href="#socios">Sócios</a><a href="#conteudos">Conteúdos</a><a href="3-trabalhe-conosco.html">Trabalhe conosco</a><a href="https://wa.me/5511989443124">Fale com nossos advogados</a></nav>
+
+<section class="hero" id="topo">
+  <div class="wrap hero-grid">
+    <div data-reveal>
+      <span class="chip"><i></i>Atuação em todo o território nacional</span>
+      <h1>Advocacia estratégica para proteger <span class="grad">o que é importante para você.</span></h1>
+      <p class="lead">Técnica jurídica, linguagem clara e atenção de perto para orientar as decisões importantes da sua vida pessoal, familiar e profissional, do primeiro contato à solução.</p>
+      <div class="busca">
+        <label id="lbl-temas">Sobre o que você quer conversar?</label>
+        <div class="temas" role="group" aria-labelledby="lbl-temas">
+          <button class="tema" data-t="familia" aria-pressed="true">Família e herança</button>
+          <button class="tema" data-t="prev" aria-pressed="false">Aposentadoria</button>
+          <button class="tema" data-t="aviacao" aria-pressed="false">Carreira na aviação</button>
+          <button class="tema" data-t="trab" aria-pressed="false">Rescisão de trabalho</button>
+          <button class="tema" data-t="consumo" aria-pressed="false">Consumo e indenização</button>
+          <button class="tema" data-t="educ" aria-pressed="false">Escola e faculdade</button>
+        </div>
+      </div>
+    </div>
+    <div class="painel" data-reveal aria-live="polite" id="painel"></div>
+  </div>
+</section>
+
+<section class="sec" id="escritorio">
+  <div class="wrap">
+    <div class="sec-head" data-reveal><div><span class="chip"><i></i>O escritório</span><h2>Técnica, estratégia e proximidade.</h2></div></div>
+    <div class="manif">
+      <div class="big" data-reveal>
+        <p>A Soares Porath Advocacia nasceu da união de dois advogados que começaram a trabalhar muito cedo e trouxeram dessa trajetória o senso de responsabilidade, a experiência em gestão de pessoas e a vontade de fazer a diferença na vida de quem nos procura.</p>
+        <p>Escolhemos ser um escritório com áreas de atuação definidas, e não generalista, para aprofundar o conhecimento técnico em cada uma delas e descomplicar o Direito. Queremos que cada cliente entre no jogo sabendo as regras do jogo.</p>
+        <a class="btn btn-ghost" href="3-visao-valores.html">Conheça nossa Missão, Visão e Valores</a>
+      </div>
+      <div class="card val" data-reveal><b>01</b><h3>Estratégia</h3><p>Diagnóstico técnico de cada situação e definição cuidadosa do caminho jurídico mais adequado.</p></div>
+      <div class="card val" data-reveal><b>02</b><h3>Transparência</h3><p>Etapas, riscos e possibilidades explicados com clareza, para decisões tomadas com segurança.</p></div>
+      <div class="card val" data-reveal><b>03</b><h3>Personalização</h3><p>Uma condução que respeita a realidade, o momento e as necessidades de cada cliente.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="atuacao">
+  <div class="wrap">
+    <div class="sec-head" data-reveal><div><span class="chip"><i></i>Áreas de atuação</span><h2>Onde atuamos.</h2></div><p>Seis áreas de atuação, cada uma conduzida com o mesmo cuidado técnico e atenção a quem nos procura.</p></div>
+    <div class="areas">
+      <a class="area" href="3-area.html?a=familia" data-reveal>
+        <div class="ilus"><svg viewBox="0 0 140 96" aria-hidden="true"><circle cx="50" cy="26" r="10"/><path d="M30 80c0-15 9-26 20-26s20 11 20 26"/><circle cx="92" cy="26" r="10"/><path d="M72 80c0-15 9-26 20-26s20 11 20 26"/><circle cx="71" cy="52" r="7"/><path d="M58 88c0-10 6-17 13-17s13 7 13 17"/></svg></div>
+        <h3>Família e Sucessões</h3><p>Divórcio, guarda, convivência, alimentos, reconhecimento de paternidade, inventário e planejamento sucessório.</p><span class="go">Conhecer a área →</span></a>
+      <a class="area" href="3-area.html?a=prev" data-reveal>
+        <div class="ilus"><svg viewBox="0 0 140 96" aria-hidden="true"><path d="M50 8h40M50 88h40"/><path d="M55 8c0 22 30 26 30 40S55 66 55 88"/><path d="M85 8c0 22-30 26-30 40s30 18 30 40"/><path class="tenue" d="M62 76c4-6 12-6 16 0"/><circle class="fill" cx="70" cy="56" r="1.8"/><path class="tenue" d="M18 70l10-8 10 4 12-14M96 40l10-6 10 3 12-12"/></svg></div>
+        <h3>Previdenciário</h3><p>Aposentadorias, planejamento previdenciário, aposentadoria especial, incapacidade, pensão por morte, BPC/LOAS, revisões e CNIS.</p><span class="go">Conhecer a área →</span></a>
+      <a class="area" href="3-area.html?a=aviacao" data-reveal>
+        <div class="ilus"><svg viewBox="0 0 140 96" aria-hidden="true"><circle cx="70" cy="50" r="36"/><ellipse cx="70" cy="50" rx="15" ry="36"/><ellipse class="tenue" cx="70" cy="50" rx="28" ry="36"/><path d="M34 50h72"/><path class="tenue" d="M38 34h64M38 66h64"/><path class="rota" d="M8 80C30 10 110 0 132 30"/><circle class="fill" cx="8" cy="80" r="3"/><g transform="translate(128 26) rotate(28)"><path class="fill" d="M0 0l14 4-14 4 3-4z"/></g></svg></div>
+        <h3>Direito do Aeronauta e da Aviação</h3><p>Planejamento previdenciário do profissional da aviação, períodos contributivos, vínculos nacionais e internacionais e questões civis da atividade.</p><span class="go">Conhecer a área →</span></a>
+      <a class="area" href="3-area.html?a=civel" data-reveal>
+        <div class="ilus"><svg viewBox="0 0 140 96" aria-hidden="true"><path d="M70 6l32 12v24c0 22-14 36-32 44-18-8-32-22-32-44V18z"/><path d="M56 46l10 10 18-20"/><path class="tenue" d="M16 30h14M16 46h10M110 30h14M114 46h10"/></svg></div>
+        <h3>Cível e Consumidor</h3><p>Responsabilidade civil, indenizações, erro médico e relações de consumo, com análise atenta de cada situação.</p><span class="go">Conhecer a área →</span></a>
+      <a class="area" href="3-area.html?a=educ" data-reveal>
+        <div class="ilus"><svg viewBox="0 0 140 96" aria-hidden="true"><path d="M70 14L22 34l48 20 48-20z"/><path d="M40 42v20c0 8 14 16 30 16s30-8 30-16V42"/><path d="M118 34v26"/><circle class="fill" cx="118" cy="62" r="3"/></svg></div>
+        <h3>Direito Educacional</h3><p>Relações entre estudantes, famílias e instituições de ensino: contratos, mensalidades, matrícula e financiamento estudantil.</p><span class="go">Conhecer a área →</span></a>
+      <a class="area" href="3-area.html?a=trab" data-reveal>
+        <div class="ilus"><svg viewBox="0 0 140 96" aria-hidden="true"><rect x="32" y="30" width="76" height="52" rx="8"/><path d="M56 30v-8a5 5 0 0 1 5-5h18a5 5 0 0 1 5 5v8"/><path d="M32 52h76"/><rect class="tenue" x="64" y="47" width="12" height="10" rx="2"/></svg></div>
+        <h3>Trabalhista</h3><p>Verbas rescisórias, rescisão indireta, jornada, vínculo de emprego e questões de saúde e segurança no trabalho.</p><span class="go">Conhecer a área →</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="calculadora">
+  <div class="wrap">
+    <div class="sec-head" data-reveal><div><span class="chip"><i></i>Ferramenta jurídica</span><h2>Calcule sua rescisão.</h2></div><p>Preencha os dados abaixo e veja uma estimativa das verbas da saída do emprego, aqui mesmo. Nada do que você digita é enviado ou guardado.</p></div>
+    <div class="calc">
+      <form class="card form" id="form-calc" novalidate data-reveal>
+        <div class="campo"><label for="salario">Último salário mensal bruto (R$)</label><input id="salario" name="salario" type="number" inputmode="decimal" min="0" step="0.01" placeholder="Ex.: 3000"></div>
+        <div class="dupla">
+          <div class="campo"><label for="admissao">Data de admissão</label><input id="admissao" name="admissao" type="date"></div>
+          <div class="campo"><label for="desligamento">Data de desligamento</label><input id="desligamento" name="desligamento" type="date"></div>
+        </div>
+        <div class="campo"><label for="tipo">Tipo de desligamento</label>
+          <select id="tipo" name="tipo">
+            <option value="sem_justa">Dispensa sem justa causa</option>
+            <option value="pedido">Pedido de demissão</option>
+            <option value="acordo">Acordo entre as partes (art. 484-A da CLT)</option>
+            <option value="indireta">Rescisão indireta</option>
+            <option value="termino">Término de contrato por prazo determinado</option>
+            <option value="justa">Dispensa por justa causa</option>
+          </select></div>
+        <fieldset><legend>Aviso-prévio</legend>
+          <div class="seg"><label><input type="radio" name="aviso" value="indenizado" checked><span>Indenizado</span></label><label><input type="radio" name="aviso" value="trabalhado"><span>Trabalhado</span></label></div>
+        </fieldset>
+        <div class="dupla">
+          <div class="campo"><label for="feriasVencidas">Férias vencidas</label><select id="feriasVencidas" name="feriasVencidas"><option value="0">Nenhum período</option><option value="1">1 período</option><option value="2">2 períodos</option></select></div>
+          <div class="campo"><label for="saldoFgts">Saldo do FGTS (opcional)</label><input id="saldoFgts" name="saldoFgts" type="number" inputmode="decimal" min="0" step="0.01" placeholder="Pelo extrato"></div>
+        </div>
+        <p class="erro" id="erro" role="alert"></p>
+        <button class="btn btn-gold" type="submit" style="width:100%">Calcular estimativa</button>
+      </form>
+      <div class="card res" id="resultado" aria-live="polite" data-reveal>
+        <div class="vazio">
+          <span class="chip"><i></i>Estimativa</span>
+          <h3 style="font-size:24px;margin:16px 0 10px">O resultado aparece aqui.</h3>
+          <p>A calculadora considera saldo de salário, aviso-prévio proporcional, 13º salário, férias com 1/3 e uma estimativa do FGTS e da multa, conforme o tipo de desligamento.</p>
+          <p>É uma estimativa útil para compreender a sua situação. Horas extras, adicionais, diferenças salariais, estabilidades e outras particularidades do contrato exigem uma análise individualizada.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="socios">
+  <div class="wrap">
+    <div class="sec-head" data-reveal><div><span class="chip"><i></i>Sócios</span><h2>Quem está à frente.</h2></div></div>
+    <div class="socios">
+      <article class="socio" data-reveal><div class="foto" data-label="Foto · Dra. Bianca Garcia Porath"><img src="../src/assets/img/socios/bianca.jpg" alt="Dra. Bianca Garcia Porath"></div><div class="txt"><h3>Dra. Bianca Garcia Porath</h3><div class="oab">OAB/SP 528.825</div><p>Formada em Direito pela FMU e pós-graduada em Psicologia Organizacional e Gestão de Pessoas pela PUCRS. Atua em Família e Sucessões, Previdenciário, Direito do Aeronauta e da Aviação e Cível, com escuta ativa, empatia e estratégia.</p><a class="btn btn-ghost" href="3-socio-bianca.html">Conheça a trajetória</a></div></article>
+      <article class="socio" data-reveal><div class="foto" data-label="Foto · Dr. Matheus Soares Pereira da Silva"><img src="../src/assets/img/socios/matheus.jpg" alt="Dr. Matheus Soares Pereira da Silva"></div><div class="txt"><h3>Dr. Matheus Soares Pereira da Silva</h3><div class="oab">OAB/SP 534.679</div><p>Formado em Direito pela FMU e especialista em Direito do Trabalho, com pós-graduação pela PUCRS. Atua em Família e Sucessões, Cível, Educacional e Trabalhista, com ética e clareza em cada etapa do caso.</p><a class="btn btn-ghost" href="3-socio-matheus.html">Conheça a trajetória</a></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="conteudos">
+  <div class="wrap">
+    <div class="sec-head" data-reveal><div><span class="chip"><i></i>Conteúdos</span><h2>Conhecimento para decidir melhor.</h2></div></div>
+    <div class="posts">
+      <a class="post" href="3-artigo.html?a=guarda-compartilhada" data-reveal><span class="chip"><i></i>Família e Sucessões</span><h3>Guarda compartilhada e a rotina dos filhos</h3><p>Aspectos que costumam orientar a organização da convivência após a separação.</p><span class="meta">Leitura de 7 min</span></a>
+      <a class="post" href="3-artigo.html?a=cnis" data-reveal><span class="chip"><i></i>Previdenciário</span><h3>Planejamento previdenciário começa pelo CNIS</h3><p>Por que o histórico de contribuições merece análise antes do pedido de aposentadoria.</p><span class="meta">Leitura de 6 min</span></a>
+      <a class="post" href="3-artigo.html?a=aeronauta" data-reveal><span class="chip"><i></i>Direito do Aeronauta</span><h3>O aeronauta e a aposentadoria</h3><p>Vínculos no exterior, natureza da atividade e histórico contributivo do profissional da aviação.</p><span class="meta">Leitura de 8 min</span></a>
+      <a class="post" href="3-artigo.html?a=consumidor" data-reveal><span class="chip"><i></i>Cível e Consumidor</span><h3>Cobrança indevida: quando o consumidor pode pedir a devolução em dobro</h3><p>O que diz o Código de Defesa do Consumidor e quais cuidados tomar antes de agir.</p><span class="meta">Leitura de 6 min</span></a>
+      <a class="post" href="3-artigo.html?a=educacional" data-reveal><span class="chip"><i></i>Direito Educacional</span><h3>Reajuste de mensalidade escolar: o que a lei permite</h3><p>Regras para o aumento das mensalidades e os direitos de estudantes e famílias.</p><span class="meta">Leitura de 6 min</span></a>
+      <a class="post" href="3-artigo.html?a=rescisao" data-reveal><span class="chip"><i></i>Trabalhista</span><h3>Verbas rescisórias: o que conferir no momento da saída</h3><p>Os principais itens do acerto e os prazos para o pagamento da rescisão.</p><span class="meta">Leitura de 7 min</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:20px">
+  <div class="wrap"><div class="cta-final centro" data-reveal>
+    <span class="chip"><i></i>Contato</span>
+    <h2>Converse com nossa equipe.</h2>
+    <p>Será um prazer conhecer a sua história e conversar sobre os caminhos possíveis para a sua situação, com a clareza e a atenção que ela merece.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center"><a class="btn btn-gold" href="https://wa.me/5511989443124" target="_blank" rel="noopener">Fale com nossos advogados</a><a class="btn btn-ghost" href="mailto:soaresporath.adv@gmail.com">Entre em contato por e-mail</a></div>
+  </div></div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="ft">
+      <div><a class="logo" href="3-contemporaneo.html"><img src="../src/assets/img/emblema-96.png" srcset="../src/assets/img/emblema-96.png 1x, ../src/assets/img/emblema-192.png 2x" alt=""><span><b>Soares Porath</b><small>ADVOCACIA</small></span></a><p>Advocacia estratégica em Família e Sucessões, Previdenciário, Direito do Aeronauta, Cível, Educacional e Trabalhista, em todo o território nacional.</p></div>
+      <div><h4>Atuação</h4><ul><li><a href="3-area.html?a=familia">Família e Sucessões</a></li><li><a href="3-area.html?a=prev">Previdenciário</a></li><li><a href="3-area.html?a=aviacao">Direito do Aeronauta</a></li><li><a href="3-area.html?a=civel">Cível e Consumidor</a></li><li><a href="3-area.html?a=educ">Direito Educacional</a></li><li><a href="3-area.html?a=trab">Trabalhista</a></li></ul></div>
+      <div><h4>Escritório</h4><ul><li><a href="#escritorio">O escritório</a></li><li><a href="3-visao-valores.html">Missão, Visão e Valores</a></li><li><a href="#socios">Sócios</a></li><li><a href="#conteudos">Conteúdos</a></li><li><a href="#calculadora">Calculadora</a></li><li><a href="3-trabalhe-conosco.html">Trabalhe conosco</a></li></ul></div>
+      <div><h4>Contato</h4><ul><li><a href="https://wa.me/5511989443124">WhatsApp (11) 98944-3124</a></li><li><a href="mailto:soaresporath.adv@gmail.com">soaresporath.adv@gmail.com</a></li><li>Av. Nicolas Boer, 399, Lapa, São Paulo/SP</li></ul><h4 style="margin-top:28px">Redes sociais</h4><ul><li><a class="ig" href="https://www.instagram.com/soaresporath.adv/" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>@soaresporath.adv</a></li></ul></div>
+    </div>
+    <div class="fb"><span>© 2026 Soares Porath Advocacia · OAB/SP 528.825 · OAB/SP 534.679</span><span><a href="3-privacidade.html" style="color:inherit">Política de Privacidade</a> · <a href="3-cuidado-com-golpes.html" style="color:inherit">Cuidado com Golpes</a></span></div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/5511989443124" target="_blank" rel="noopener" aria-label="WhatsApp do escritório"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3a.5.5 0 0 0 0-.5c-.1-.1-.6-1.3-.8-1.8s-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"/></svg></a>
+<a class="proposta-tag" href="index.html">← Proposta 3 (escolhida) · versão 2</a>
+<script src="shared.js"></script>
+<script src="../src/assets/js/regras-trabalhistas.js"></script>
+<script src="../src/assets/js/calculadora.js"></script>
+<script>
+(function(){
+  'use strict';
+  var TEL='5511989443124';
+  var temas={
+    familia:{tag:'Família e Sucessões',t:'Decisões familiares pedem técnica e sensibilidade.',d:'Divórcio, guarda, alimentos e sucessões envolvem relações e patrimônio. Cuidamos de cada aspecto com atenção.',i:['Divórcio, guarda e convivência','Pensão alimentícia','Inventário e planejamento sucessório'],w:'Olá! Gostaria de conversar com o escritório sobre Direito de Família e Sucessões.',l:'#atuacao',lt:'Conheça a área'},
+    prev:{tag:'Previdenciário',t:'Aposentadoria começa com uma boa leitura do seu histórico.',d:'A análise do CNIS e das regras aplicáveis ajuda a compreender o momento e o caminho mais adequados.',i:['Aposentadorias e planejamento','Benefícios por incapacidade e pensão por morte','Revisões e análise de CNIS'],w:'Olá! Gostaria de conversar com o escritório sobre aposentadoria e previdência.',l:'#atuacao',lt:'Conheça a área'},
+    aviacao:{tag:'Direito do Aeronauta',t:'Sua trajetória na aviação merece um planejamento à altura.',d:'Períodos em empresas nacionais e estrangeiras, regras da atividade e histórico contributivo fazem diferença na vida previdenciária do profissional da aviação.',i:['Planejamento previdenciário do aeronauta','Análise de períodos contributivos','Vínculos nacionais e internacionais'],w:'Olá! Gostaria de conversar com o escritório sobre Direito do Aeronauta.',l:'#atuacao',lt:'Conheça a área'},
+    trab:{tag:'Trabalhista',t:'Entenda as verbas da sua rescisão.',d:'Use a calculadora logo abaixo para uma estimativa e converse com nossa equipe para verificar se todos os seus direitos foram considerados.',i:['Verbas rescisórias','Rescisão indireta','Jornada e vínculo de emprego'],w:'Olá! Gostaria de conversar com o escritório sobre uma rescisão trabalhista.',l:'#calculadora',lt:'Calcular agora'},
+    consumo:{tag:'Cível e Consumidor',t:'Quando um dano exige uma resposta jurídica.',d:'Atuação em responsabilidade civil, indenizações, erro médico e relações de consumo.',i:['Indenizações','Erro médico','Relações de consumo'],w:'Olá! Gostaria de conversar com o escritório sobre uma questão cível ou de consumo.',l:'#atuacao',lt:'Conheça a área'},
+    educ:{tag:'Direito Educacional',t:'A relação com a instituição de ensino também tem regras.',d:'Contratos, mensalidades, matrícula e financiamento estudantil, para estudantes e famílias.',i:['Contratos e mensalidades','Matrícula e cancelamento','Financiamento estudantil'],w:'Olá! Gostaria de conversar com o escritório sobre Direito Educacional.',l:'#atuacao',lt:'Conheça a área'}
+  };
+  var p=document.getElementById('painel');
+  function mostra(k){var x=temas[k];p.innerHTML='<div class="troca" style="display:flex;flex-direction:column;height:100%"><span class="tag">'+x.tag+'</span><h3>'+x.t+'</h3><p>'+x.d+'</p><ul>'+x.i.map(function(s){return '<li>'+s+'</li>'}).join('')+'</ul><div class="acoes"><a class="btn btn-gold" target="_blank" rel="noopener" href="https://wa.me/'+TEL+'?text='+encodeURIComponent(x.w)+'">Fale com nossos advogados</a><a class="btn btn-ghost" href="'+x.l+'">'+x.lt+'</a></div></div>';}
+  document.querySelectorAll('.tema').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.tema').forEach(function(o){o.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true');mostra(b.dataset.t);});});
+  mostra('familia');
+  document.querySelectorAll('.area').forEach(function(c){c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px');});});
+
+  // Calculadora (usa o mesmo motor de cálculo do site: src/assets/js/calculadora.js)
+  var form=document.getElementById('form-calc'),out=document.getElementById('resultado'),erro=document.getElementById('erro');
+  var fmt=new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}),ultimo=null;
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function msg(incluir){
+    if(!incluir||!ultimo)return 'Olá! Usei a calculadora do site e gostaria de conversar com um advogado sobre a minha rescisão.';
+    return 'Olá! Usei a calculadora do site. Tipo de desligamento: '+ultimo.resumo.tipoRotulo+'; tempo de contrato: '+ultimo.resumo.tempoContrato+'; estimativa (valor bruto): '+fmt.format(ultimo.total)+'. Gostaria de conversar com um advogado sobre a minha rescisão.';
+  }
+  function link(){var cb=document.getElementById('incluir');var a=document.getElementById('cta-calc');if(a)a.href='https://wa.me/'+TEL+'?text='+encodeURIComponent(msg(cb&&cb.checked));}
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var d=new FormData(form);
+    var r=window.Rescisao.calcular({salario:d.get('salario'),admissao:d.get('admissao'),desligamento:d.get('desligamento'),tipo:d.get('tipo'),aviso:d.get('aviso'),feriasVencidas:d.get('feriasVencidas'),saldoFgts:d.get('saldoFgts')===''?null:d.get('saldoFgts')});
+    if(!r.ok){erro.textContent=r.erro;return;}
+    erro.textContent='';ultimo=r;
+    var linhas=r.itens.map(function(i){return '<tr class="'+(i.negativo?'neg':'')+'"><td>'+esc(i.nome)+'<small>'+esc(i.nota)+'</small></td><td>'+fmt.format(i.valor)+'</td></tr>';}).join('');
+    var f=r.fgts;
+    out.innerHTML='<span class="chip"><i></i>Estimativa das verbas rescisórias</span>'+
+      '<div class="total">'+fmt.format(r.total)+'</div>'+
+      '<p class="sub">Valor bruto estimado, sem descontos de INSS e Imposto de Renda · '+esc(r.resumo.tipoRotulo)+' · '+esc(r.resumo.tempoContrato)+' de contrato</p>'+
+      '<table><tbody>'+linhas+'</tbody></table>'+
+      '<h4>FGTS (conta vinculada)</h4><table><tbody>'+
+      '<tr><td>Saldo considerado<small>depósitos acumulados</small></td><td>'+fmt.format(f.saldoBase)+'</td></tr>'+
+      '<tr><td>FGTS sobre as verbas da rescisão</td><td>'+fmt.format(f.fgtsRescisorio)+'</td></tr>'+
+      (f.multaPercentual>0?'<tr><td>Multa de '+f.multaPercentual+'%<small>depositada na conta vinculada</small></td><td>'+fmt.format(f.multa)+'</td></tr>':'')+
+      '</tbody></table>'+
+      (r.avisos.length?'<h4>Observações</h4><ul>'+r.avisos.map(function(a){return '<li>'+esc(a)+'</li>';}).join('')+'</ul>':'')+
+      '<div class="convite"><p>Quer compreender melhor os valores da sua rescisão e verificar se todos os seus direitos foram considerados? Nossa equipe pode ajudar você a analisar sua situação.</p>'+
+      '<label><input type="checkbox" id="incluir"> Incluir na mensagem o tipo de desligamento, o tempo de contrato e o valor estimado</label>'+
+      '<a id="cta-calc" class="btn btn-gold" target="_blank" rel="noopener" href="#">Quero conversar com um advogado</a></div>'+
+      '<p class="nota">Estimativa informativa com base em regras gerais da CLT. Não é cálculo oficial nem garantia de valores. Nenhum dado digitado é enviado ou guardado.</p>';
+    document.getElementById('incluir').addEventListener('change',link);link();
+    if(window.innerWidth<1000)out.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+})();
+</script>
+</body>
+</html>

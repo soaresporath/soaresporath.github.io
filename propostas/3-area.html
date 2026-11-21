@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Áreas de atuação | Soares Porath Advocacia</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="../src/assets/img/favicon.png">
+<link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="p3.css">
+<link rel="stylesheet" href="p3-pagina.css">
+<style>
+.area-topo{padding:160px 0 30px}
+.area-topo h1{font-size:clamp(32px,4vw,50px);margin:18px 0 16px;max-width:24ch}
+.area-topo .lead{color:#D4DAE8;font-size:18px;max-width:64ch;margin:0}
+.corpo{display:grid;gap:22px;align-items:start}
+@media(min-width:1000px){.corpo{grid-template-columns:1fr 330px}.corpo aside{position:sticky;top:110px}}
+.situacoes{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:10px}
+.situacoes li{display:flex;gap:12px;align-items:flex-start;padding:15px 18px;border-radius:14px;background:rgba(255,255,255,.035);border:1px solid var(--stroke);text-align:left}
+.situacoes li::before{content:"";flex:0 0 8px;height:8px;margin-top:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px rgba(212,184,114,.6)}
+@media(min-width:760px){.situacoes{grid-template-columns:1fr 1fr}}
+.outras{display:grid;gap:10px;margin-top:12px}
+.outras a{display:block;padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.035);border:1px solid var(--stroke);color:var(--text);text-decoration:none;font-size:15px}
+.outras a:hover{border-color:rgba(212,184,114,.4)}
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true"><div class="orb"></div></div>
+<header data-header>
+  <div class="wrap"><div class="bar">
+    <a class="logo" href="3-contemporaneo.html" aria-label="Soares Porath Advocacia, página inicial"><img src="../src/assets/img/emblema-96.png" srcset="../src/assets/img/emblema-96.png 1x, ../src/assets/img/emblema-192.png 2x" alt=""><span><b>Soares Porath</b><small>ADVOCACIA</small></span></a>
+    <ul class="links"><li><a href="3-contemporaneo.html#escritorio">Escritório</a></li><li><a href="3-visao-valores.html">Missão, Visão e Valores</a></li><li><a href="3-contemporaneo.html#atuacao" aria-current="page">Atuação</a></li><li><a href="3-contemporaneo.html#calculadora">Calculadora</a></li><li><a href="3-contemporaneo.html#socios">Sócios</a></li><li><a href="3-contemporaneo.html#conteudos">Conteúdos</a></li></ul>
+    <a class="btn btn-gold" href="https://wa.me/5511989443124" target="_blank" rel="noopener">Fale com nossos advogados</a>
+    <button class="burger" data-menu-toggle aria-expanded="false" aria-label="Abrir menu">☰</button>
+  </div></div>
+</header>
+<nav class="mnav" data-menu aria-label="Menu"><a href="3-contemporaneo.html#escritorio">Escritório</a><a href="3-visao-valores.html">Missão, Visão e Valores</a><a href="3-contemporaneo.html#atuacao">Atuação</a><a href="3-contemporaneo.html#calculadora">Calculadora</a><a href="3-contemporaneo.html#socios">Sócios</a><a href="3-contemporaneo.html#conteudos">Conteúdos</a><a href="3-trabalhe-conosco.html">Trabalhe conosco</a></nav>
+
+<section class="area-topo">
+  <div class="wrap" data-reveal>
+    <span class="chip"><i></i>Área de atuação</span>
+    <h1 id="titulo">Área de atuação</h1>
+    <p class="lead" id="intro"></p>
+    <span class="rascunho">Prévia da página da área: os textos completos serão desenvolvidos na reconstrução do site e revisados pelos sócios.</span>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:30px">
+  <div class="wrap corpo">
+    <div style="display:grid;gap:18px">
+      <article class="card" style="padding:34px" data-reveal>
+        <h2 style="font-size:26px;margin:0 0 6px">Situações em que atuamos</h2>
+        <ul class="situacoes" id="situacoes"></ul>
+      </article>
+      <article class="card" style="padding:34px" data-reveal>
+        <h2 style="font-size:26px;margin:0 0 12px">Como conduzimos cada caso</h2>
+        <p style="color:#D4DAE8;margin:0 0 12px">Cada atendimento segue o nosso método ETP: <strong>Estratégia</strong>, com um diagnóstico técnico da situação; <strong>Transparência</strong>, com explicações claras sobre etapas, riscos e possibilidades; e <strong>Personalização</strong>, com uma condução pensada para a realidade de cada cliente.</p>
+        <p style="color:#D4DAE8;margin:0">Atuamos em todo o território nacional, com acompanhamento próximo e comunicação clara do início ao fim.</p>
+        <div id="extra"></div>
+      </article>
+      <div class="card" style="padding:30px;background:linear-gradient(150deg,rgba(212,184,114,.16),rgba(212,184,114,.04));border-color:rgba(212,184,114,.3)" data-reveal>
+        <h2 style="font-size:24px;margin:0 0 10px">Vamos conversar sobre a sua situação?</h2>
+        <p style="margin:0 0 16px">Será um prazer conhecer o seu caso e explicar, com clareza, os caminhos possíveis.</p>
+        <a class="btn btn-gold" id="cta" href="https://wa.me/5511989443124" target="_blank" rel="noopener">Fale com nossos advogados</a>
+      </div>
+    </div>
+    <aside data-reveal>
+      <div class="card"><span class="chip"><i></i>Outras áreas</span><div class="outras" id="outras"></div></div>
+    </aside>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="ft">
+      <div><a class="logo" href="3-contemporaneo.html"><img src="../src/assets/img/emblema-96.png" srcset="../src/assets/img/emblema-96.png 1x, ../src/assets/img/emblema-192.png 2x" alt=""><span><b>Soares Porath</b><small>ADVOCACIA</small></span></a><p>Advocacia estratégica em Família e Sucessões, Previdenciário, Direito do Aeronauta, Cível, Educacional e Trabalhista, em todo o território nacional.</p></div>
+      <div><h4>Atuação</h4><ul><li><a href="3-area.html?a=familia">Família e Sucessões</a></li><li><a href="3-area.html?a=prev">Previdenciário</a></li><li><a href="3-area.html?a=aviacao">Direito do Aeronauta</a></li><li><a href="3-area.html?a=civel">Cível e Consumidor</a></li><li><a href="3-area.html?a=educ">Direito Educacional</a></li><li><a href="3-area.html?a=trab">Trabalhista</a></li></ul></div>
+      <div><h4>Escritório</h4><ul><li><a href="3-contemporaneo.html#escritorio">O escritório</a></li><li><a href="3-visao-valores.html">Missão, Visão e Valores</a></li><li><a href="3-contemporaneo.html#socios">Sócios</a></li><li><a href="3-contemporaneo.html#calculadora">Calculadora</a></li><li><a href="3-trabalhe-conosco.html">Trabalhe conosco</a></li></ul></div>
+      <div><h4>Contato</h4><ul><li><a href="https://wa.me/5511989443124">WhatsApp (11) 98944-3124</a></li><li><a href="mailto:soaresporath.adv@gmail.com">soaresporath.adv@gmail.com</a></li><li>Av. Nicolas Boer, 399, Lapa, São Paulo/SP</li></ul><h4 style="margin-top:28px">Redes sociais</h4><ul><li><a class="ig" href="https://www.instagram.com/soaresporath.adv/" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>@soaresporath.adv</a></li></ul></div>
+    </div>
+    <div class="fb"><span>© 2026 Soares Porath Advocacia · OAB/SP 528.825 · OAB/SP 534.679</span><span><a href="3-privacidade.html" style="color:inherit">Política de Privacidade</a> · <a href="3-cuidado-com-golpes.html" style="color:inherit">Cuidado com Golpes</a></span></div>
+  </div>
+</footer>
+<a class="wa" href="https://wa.me/5511989443124" target="_blank" rel="noopener" aria-label="WhatsApp do escritório"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3a.5.5 0 0 0 0-.5c-.1-.1-.6-1.3-.8-1.8s-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"/></svg></a>
+<a class="proposta-tag" href="3-contemporaneo.html#atuacao">← Voltar às áreas (proposta 3)</a>
+<script src="shared.js"></script>
+<script>
+(function(){
+  'use strict';
+  var A={
+    familia:{t:'Família e Sucessões',i:'Questões familiares envolvem afeto, patrimônio e decisões que impactam toda a família. Atuamos com técnica e sensibilidade, buscando soluções equilibradas e seguras para cada momento.',s:['Divórcio e dissolução de união estável','Guarda e regulamentação de convivência','Pensão alimentícia: fixação, revisão e exoneração','Reconhecimento de paternidade','Inventário e partilha de bens','Planejamento sucessório']},
+    prev:{t:'Previdenciário',i:'A vida previdenciária é construída ao longo de toda a trajetória profissional. Analisamos o histórico de cada pessoa para orientar sobre benefícios, revisões e o planejamento mais adequado.',s:['Aposentadorias','Planejamento previdenciário','Aposentadoria especial','Benefícios por incapacidade','Pensão por morte','BPC/LOAS','Revisão de benefícios','Análise de CNIS']},
+    aviacao:{t:'Direito do Aeronauta e da Aviação',i:'A carreira na aviação tem particularidades que fazem diferença na vida previdenciária e civil do profissional. Atuamos com atenção às regras da atividade e à trajetória de cada aeronauta.',s:['Planejamento previdenciário do profissional da aviação','Análise de períodos contributivos','Vínculos nacionais e internacionais','Questões civis relacionadas ao exercício da atividade aeronáutica','Direitos e demandas jurídicas pertinentes aos profissionais da aviação']},
+    civel:{t:'Cível e Consumidor',i:'Quando um dano ou um problema em uma relação de consumo exige uma resposta jurídica, atuamos com análise atenta dos fatos e das provas para buscar a solução adequada.',s:['Responsabilidade civil e indenizações','Erro médico','Relações de consumo','Cobranças indevidas','Contratos']},
+    educ:{t:'Direito Educacional',i:'A relação entre estudantes, famílias e instituições de ensino também tem regras. Atuamos para que direitos e deveres de cada parte sejam respeitados.',s:['Contratos de prestação de serviços educacionais','Mensalidades e reajustes','Matrícula, rematrícula e cancelamento','Financiamento estudantil','Conflitos entre estudantes, famílias e instituições']},
+    trab:{t:'Trabalhista',i:'Direitos e deveres na relação de trabalho precisam ser observados do início ao fim do contrato. Atuamos para que cada verba e cada direito sejam considerados.',s:['Verbas rescisórias','Rescisão indireta','Jornada de trabalho e horas extras','Reconhecimento de vínculo de emprego','Acidente e doença relacionados ao trabalho'],x:'<p style="color:#D4DAE8;margin:14px 0 0">Quer uma estimativa das verbas da sua rescisão? <a href="3-contemporaneo.html#calculadora" style="color:var(--gold-2)">Use a calculadora do site</a>.</p>'}
+  };
+  var k='familia';try{k=new URLSearchParams(location.search).get('a')||k;}catch(e){}
+  if(!A[k])k='familia';var x=A[k];
+  document.title=x.t+' | Soares Porath Advocacia';
+  var nomeMsg={'Previdenciário':'Direito Previdenciário','Trabalhista':'Direito do Trabalho','Cível e Consumidor':'Direito Cível e do Consumidor','Família e Sucessões':'Direito de Família e Sucessões'}[x.t]||x.t;
+  document.body.dataset.wa='Olá! Vim pelo site e gostaria de conversar com o escritório sobre '+nomeMsg+'.';
+  document.getElementById('titulo').textContent=x.t;
+  document.getElementById('intro').textContent=x.i;
+  document.getElementById('situacoes').innerHTML=x.s.map(function(s){return '<li>'+s+'</li>';}).join('');
+  document.getElementById('extra').innerHTML=x.x||'';
+  document.getElementById('cta').href='https://wa.me/5511989443124?text='+encodeURIComponent('Olá! Gostaria de conversar com o escritório sobre '+nomeMsg+'.');
+  document.getElementById('outras').innerHTML=Object.keys(A).filter(function(o){return o!==k;}).map(function(o){return '<a href="3-area.html?a='+o+'">'+A[o].t+'</a>';}).join('');
+})();
+</script>
+</body>
+</html>

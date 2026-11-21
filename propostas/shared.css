@@ -1,0 +1,19 @@
+/* Base comum às três propostas (só para a prévia). Cada proposta define sua própria identidade por cima. */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+/* faixa de identificação da proposta (não faz parte do site) */
+.proposta-tag{position:fixed;left:16px;bottom:16px;z-index:200;background:#111;color:#fff;font:600 12px/1.2 system-ui,sans-serif;padding:8px 12px;border-radius:6px;opacity:.85;text-decoration:none}
+.proposta-tag:hover{opacity:1}
+/* moldura de foto: mostra a foto real se existir; senão, um espaço reservado elegante */
+.foto{position:relative;overflow:hidden;background:var(--foto-bg,#1a2440)}
+.foto img{width:100%;height:100%;object-fit:cover;object-position:50% 22%;position:absolute;inset:0}
+.foto .foto-vazia{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:10px;padding:22px;text-align:center;color:var(--foto-fg,rgba(255,255,255,.7));font:500 12px/1.4 system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;background:
+  radial-gradient(120% 70% at 50% 38%, rgba(255,255,255,.10), transparent 60%),
+  linear-gradient(180deg, rgba(255,255,255,.03), rgba(0,0,0,.25))}
+.foto .foto-vazia::before{content:"";position:absolute;left:50%;top:32%;transform:translate(-50%,-50%);width:38%;aspect-ratio:1;border-radius:50%;background:rgba(255,255,255,.08);box-shadow:0 120px 0 40px rgba(255,255,255,.06)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}

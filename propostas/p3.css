@@ -1,0 +1,85 @@
+/* Proposta 3 — Contemporâneo e Tecnológico (escolhida). Estilos comuns às páginas da proposta. */
+/* Títulos: Playfair Display (fonte A, escolhida pelos sócios) */
+@font-face{font-family:"Playfair";src:url(https://cdn.jsdelivr.net/fontsource/fonts/playfair-display@latest/latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"Playfair";src:url(https://cdn.jsdelivr.net/fontsource/fonts/playfair-display@latest/latin-600-normal.woff2) format("woff2");font-weight:600;font-display:swap}
+/* Nome no logo: Cinzel, a mesma família de letra do logo original */
+@font-face{font-family:"Cinzel";src:url(../src/assets/fonts/cinzel-700.woff2) format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"Inter";src:url(https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Inter";src:url(https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"Inter";src:url(https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-600-normal.woff2) format("woff2");font-weight:600;font-display:swap}
+:root{
+  --bg:#070C1B; --bg-2:#0C1430; --navy:#15224A; --gold:#D4B872; --gold-2:#F0DDA8;
+  --text:#E8ECF6; --mute:#A3ACC4; --glass:rgba(255,255,255,.045); --stroke:rgba(255,255,255,.09);
+  --head:"Playfair",Georgia,serif; --head-w:500; --head-ls:-.005em;
+  --sans:"Inter",system-ui,sans-serif; --foto-bg:#15224A;
+}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);font-size:16.5px;line-height:1.7;overflow-x:hidden}
+.wrap{max-width:1220px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--head);font-weight:var(--head-w);letter-spacing:var(--head-ls);margin:0;line-height:1.15;text-wrap:balance}
+/* Textos justificados, como no Word, sem quebrar palavras com hífen */
+p,li{text-align:justify;hyphens:none;-webkit-hyphens:none;overflow-wrap:normal;text-wrap:pretty}
+.centro p{text-align:justify;text-align-last:center}
+/* Justificado só onde a linha é larga o bastante; em blocos estreitos ele abriria buracos entre as palavras */
+.card,.area,.valor,.post,.painel,.passo,.pilar,.socio .txt,.convite,.convite-cultura{container-type:inline-size}
+@container (max-width:520px){p,li{text-align:left}}
+@media(max-width:699px){p,li{text-align:left}.centro p{text-align:center}}
+.chip{display:inline-flex;align-items:center;gap:8px;font:500 12px/1 var(--sans);letter-spacing:.06em;color:var(--gold-2);background:rgba(212,184,114,.1);border:1px solid rgba(212,184,114,.25);padding:8px 14px;border-radius:999px}
+.chip i{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold)}
+.grad{background:linear-gradient(100deg,var(--gold-2),var(--gold) 45%,#B9965A);-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 24px;border-radius:14px;font:600 14.5px/1 var(--sans);text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .25s,background .25s,border-color .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn-gold{background:linear-gradient(180deg,#E3CB8D,#C9A85F);color:#0A1022;box-shadow:0 10px 30px -10px rgba(212,184,114,.6)}
+.btn-ghost{background:var(--glass);border-color:var(--stroke);color:var(--text);backdrop-filter:blur(10px)}
+.btn-ghost:hover{border-color:rgba(212,184,114,.45)}
+
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;background:radial-gradient(1200px 700px at 80% -10%,#1A2A5E 0%,transparent 55%),radial-gradient(900px 600px at -10% 40%,#101C45 0%,transparent 55%),var(--bg)}
+.bg::before{content:"";position:absolute;inset:-50%;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse at 50% 30%,#000 20%,transparent 65%);-webkit-mask-image:radial-gradient(ellipse at 50% 30%,#000 20%,transparent 65%)}
+.orb{position:absolute;width:520px;height:520px;border-radius:50%;filter:blur(90px);opacity:.32;background:radial-gradient(circle,#D4B872,transparent 60%);top:8%;right:-120px;animation:flutua 16s ease-in-out infinite alternate}
+@keyframes flutua{to{transform:translate(-160px,120px)}}
+
+/* Cabeçalho flutuante */
+header{position:fixed;top:16px;left:0;right:0;z-index:50}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;max-width:1180px;margin:0 auto;padding:10px 10px 10px 14px;border-radius:20px;background:rgba(10,16,34,.6);border:1px solid var(--stroke);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);transition:max-width .5s,background .4s}
+header.rolado .bar{max-width:1060px;background:rgba(10,16,34,.85)}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text)}
+.logo img{width:42px;height:42px;border-radius:50%;box-shadow:0 0 0 1px rgba(212,184,114,.55)}
+.logo b{display:block;font:700 15.5px/1 "Cinzel",Georgia,serif;letter-spacing:.07em;text-transform:uppercase}
+.logo small{display:block;font:500 9.5px/1 var(--sans);letter-spacing:.34em;color:var(--gold);margin-top:5px}
+.links{display:none;list-style:none;margin:0;padding:0;gap:2px}
+.links a{display:block;padding:10px 10px;border-radius:10px;text-decoration:none;color:var(--mute);font:500 13.5px/1 var(--sans);transition:color .2s,background .2s;white-space:nowrap}
+.logo span,.logo b,.bar .btn{white-space:nowrap}
+.ft p{text-align:left}
+.links a:hover,.links a[aria-current]{color:var(--text);background:rgba(255,255,255,.06)}
+.bar .btn{min-height:42px;padding:0 16px;font-size:13.5px;border-radius:12px;display:none}
+.burger{background:var(--glass);border:1px solid var(--stroke);color:var(--text);border-radius:12px;width:44px;height:44px;cursor:pointer;font-size:18px}
+.mnav{position:fixed;inset:84px 16px auto 16px;z-index:49;padding:14px;border-radius:20px;background:rgba(10,16,34,.96);border:1px solid var(--stroke);backdrop-filter:blur(16px);display:none}
+.mnav.aberto{display:grid;gap:4px}
+.mnav a{padding:14px;border-radius:12px;text-decoration:none;color:var(--text);font:500 16px/1 var(--sans)}
+.mnav a:hover{background:rgba(255,255,255,.06)}
+@media(min-width:1180px){.links{display:flex}.bar .btn{display:inline-flex}.burger{display:none}}
+@media(min-width:1180px) and (max-width:1299px){.bar .btn{padding:0 13px;font-size:13px}.links a{padding:10px 8px}}
+
+.sec{padding:100px 0}
+/* Título da seção com o texto de apoio logo abaixo (nunca solto ao lado) */
+.sec-head{display:block;margin-bottom:44px;max-width:760px}
+.sec-head h2{font-size:clamp(30px,3.6vw,46px);max-width:22ch;margin-top:18px}
+.sec-head p{color:var(--mute);max-width:62ch;margin:14px 0 0;font-size:17px;text-align:left}
+.card{border-radius:24px;padding:30px;background:var(--glass);border:1px solid var(--stroke)}
+
+footer{border-top:1px solid var(--stroke);padding:80px 0 36px;margin-top:40px;color:var(--mute);font-size:15px}
+.ft{display:grid;gap:40px}
+.ft p{max-width:40ch;margin:20px 0 0}
+.ft h4{font:500 12px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--text);margin:0 0 18px}
+.ft ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.ft li{text-align:left}
+.ft a{color:var(--mute);text-decoration:none}
+.ft a:hover{color:var(--gold-2)}
+.ft .ig{display:inline-flex;align-items:center;gap:9px}
+.fb{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;border-top:1px solid var(--stroke);margin-top:56px;padding-top:24px;font-size:13px}
+@media(min-width:900px){.ft{grid-template-columns:1.6fr 1fr 1fr 1.2fr}}
+
+.wa{position:fixed;right:20px;bottom:20px;z-index:60;width:56px;height:56px;border-radius:18px;display:grid;place-items:center;color:#0A1022;background:linear-gradient(180deg,#E3CB8D,#C9A85F);box-shadow:0 14px 34px -10px rgba(212,184,114,.7);transition:transform .25s}
+.wa:hover{transform:translateY(-3px) rotate(-4deg)}
+
+.js [data-reveal]{opacity:0;transform:translateY(22px) scale(.985);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.js [data-reveal].visivel{opacity:1;transform:none}
