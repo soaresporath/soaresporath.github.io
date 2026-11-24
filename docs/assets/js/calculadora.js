@@ -134,6 +134,9 @@
     }
     var fgtsRescisorio = R.fgtsAliquota * (saldo + v13 + avisoValor);
     var multa = (saldoBase + fgtsRescisorio) * t.multaFgts;
+    // Total na conta do FGTS após a rescisão e quanto pode ser sacado nesta modalidade
+    var totalConta = saldoBase + fgtsRescisorio + multa;
+    var saqueFgts = totalConta * t.saqueFgts;
 
     // Observações específicas
     if (inp.tipo === 'termino') avisos.push('Se o contrato por prazo determinado foi encerrado antes do prazo pela empresa, pode haver indenização adicional (art. 479 da CLT), não incluída nesta estimativa.');
@@ -148,8 +151,10 @@
 
     return {
       ok: true, itens: itens, total: r2(total), avisos: avisos, avisoDias: avisoDias,
+      totalComFgts: r2(r2(total) + r2(saqueFgts)),
       fgts: {
         saldoBase: r2(saldoBase), fgtsRescisorio: r2(fgtsRescisorio), multa: r2(multa),
+        totalConta: r2(totalConta), saque: r2(saqueFgts),
         multaPercentual: Math.round(t.multaFgts * 100), saquePercentual: Math.round(t.saqueFgts * 100)
       },
       resumo: { tipoRotulo: t.rotulo, tempoContrato: tempo, anos: anos }

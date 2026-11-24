@@ -28,7 +28,7 @@
 
   function mensagem(incluir) {
     if (!incluir || !ultimo) return 'Olá! Usei a calculadora do site e gostaria de conversar com um advogado sobre a minha rescisão.';
-    return 'Olá! Usei a calculadora do site. Tipo de desligamento: ' + ultimo.resumo.tipoRotulo + '; tempo de contrato: ' + ultimo.resumo.tempoContrato + '; estimativa (valor bruto): ' + fmt.format(ultimo.total) + '. Gostaria de conversar com um advogado sobre a minha rescisão.';
+    return 'Olá! Usei a calculadora do site. Tipo de desligamento: ' + ultimo.resumo.tipoRotulo + '; tempo de contrato: ' + ultimo.resumo.tempoContrato + '; estimativa da rescisão (valor bruto): ' + fmt.format(ultimo.total) + '; rescisão + FGTS para saque: ' + fmt.format(ultimo.totalComFgts) + '. Gostaria de conversar com um advogado sobre a minha rescisão.';
   }
   function atualizaLink() {
     var cb = document.getElementById('incluir'), a = document.getElementById('cta-calc');
@@ -48,14 +48,23 @@
     var linhas = r.itens.map(function (i) { return '<tr class="' + (i.negativo ? 'neg' : '') + '"><td>' + esc(i.nome) + '<small>' + esc(i.nota) + '</small></td><td>' + fmt.format(i.valor) + '</td></tr>'; }).join('');
     var f = r.fgts;
     var saque = f.saquePercentual === 100 ? 'Saque do saldo do FGTS permitido nesta modalidade.' : (f.saquePercentual > 0 ? 'Saque de até ' + f.saquePercentual + '% do saldo do FGTS nesta modalidade.' : 'Nesta modalidade, em regra, não há saque do FGTS.');
+    var soma = f.saque > 0
+      ? '<div class="soma"><span class="rot">Rescisão + FGTS para saque</span><div class="valor-soma">' + fmt.format(r.totalComFgts) + '</div>' +
+        '<p>Verbas da rescisão (' + fmt.format(r.total) + ') somadas ao FGTS que pode ser sacado nesta modalidade (' + fmt.format(f.saque) + (f.saquePercentual < 100 ? ', ' + f.saquePercentual + '% do total da conta' : '') + ').</p></div>'
+      : '<div class="soma"><span class="rot">Rescisão + FGTS para saque</span><div class="valor-soma">' + fmt.format(r.totalComFgts) + '</div>' +
+        '<p>Nesta modalidade, em regra, o FGTS não pode ser sacado: o saldo de ' + fmt.format(f.totalConta) + ' continua na conta vinculada. Por isso o valor é o mesmo da rescisão.</p></div>';
     out.innerHTML = '<span class="chip"><i></i>Estimativa das verbas rescisórias</span>' +
+      '<span class="rot-total">Verbas da rescisão (pagas pela empresa)</span>' +
       '<div class="total">' + fmt.format(r.total) + '</div>' +
       '<p class="sub">Valor bruto estimado, sem descontos de INSS e Imposto de Renda · ' + esc(r.resumo.tipoRotulo) + ' · ' + esc(r.resumo.tempoContrato) + ' de contrato</p>' +
+      soma +
+      '<h4>Detalhamento da rescisão</h4>' +
       '<table><tbody>' + linhas + '</tbody></table>' +
       '<h4>FGTS (conta vinculada)</h4><table><tbody>' +
       '<tr><td>Saldo considerado<small>depósitos acumulados</small></td><td>' + fmt.format(f.saldoBase) + '</td></tr>' +
       '<tr><td>FGTS sobre as verbas da rescisão<small>8% sobre saldo de salário, 13º e aviso indenizado</small></td><td>' + fmt.format(f.fgtsRescisorio) + '</td></tr>' +
       (f.multaPercentual > 0 ? '<tr><td>Multa de ' + f.multaPercentual + '%<small>depositada na conta vinculada</small></td><td>' + fmt.format(f.multa) + '</td></tr>' : '') +
+      '<tr class="forte"><td>Total na conta do FGTS</td><td>' + fmt.format(f.totalConta) + '</td></tr>' +
       '</tbody></table><p class="sub" style="margin-top:8px">' + saque + '</p>' +
       (r.avisos.length ? '<h4>Observações</h4><ul>' + r.avisos.map(function (a) { return '<li>' + esc(a) + '</li>'; }).join('') + '</ul>' : '') +
       '<div class="convite"><p>Quer compreender melhor os valores da sua rescisão e verificar se todos os seus direitos foram considerados? Nossa equipe pode ajudar você a analisar sua situação.</p>' +

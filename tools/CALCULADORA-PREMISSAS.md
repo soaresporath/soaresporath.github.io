@@ -17,6 +17,7 @@ A calculadora apresenta **estimativa informativa em valores brutos**. Nada é en
 | FGTS da rescisão | 8% sobre saldo de salário, 13º e aviso indenizado. Não incide sobre férias indenizadas. | Lei 8.036/1990; Súmula 305 do TST |
 | Saldo de FGTS | Se o visitante não informar, estimado em 8% do salário × meses de contrato × 13/12 (inclui o 13º). | Estimativa |
 | Multa do FGTS | 40% (sem justa causa e rescisão indireta), 20% (acordo), 0% (demais). | Lei 8.036/1990, art. 18; CLT art. 484-A, I, "b" |
+| Rescisão + FGTS para saque | Total da rescisão + (saldo considerado + FGTS da rescisão + multa) × percentual de saque da modalidade. Pedido de demissão e justa causa: igual ao total da rescisão (FGTS fica na conta). | Lei 8.036/1990, art. 20; CLT art. 484-A, § 1º |
 | Saque do FGTS | 100% (sem justa causa, rescisão indireta, término de contrato), 80% (acordo), 0% (pedido e justa causa). | Lei 8.036/1990, art. 20; CLT art. 484-A, § 1º |
 
 ## O que NÃO entra (avisado ao visitante)

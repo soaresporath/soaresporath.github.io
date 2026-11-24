@@ -30,6 +30,8 @@
   igual('FGTS sobre a rescisão (8% de 3000+2750+4200)',a.fgts.fgtsRescisorio,796);
   igual('multa de 40%',a.fgts.multa,6142.4);
   igual('saque 100%',a.fgts.saquePercentual,100);
+  igual('total na conta do FGTS (14560 + 796 + 6142,40)',a.fgts.totalConta,21498.4);
+  igual('rescisão + FGTS para saque',a.totalComFgts,12950+21498.4);
 
   titulo('2. Pedido de demissão, aviso trabalhado (R$ 2.000; 15/01/2024 a 10/07/2024)');
   var b=C({salario:2000,admissao:'2024-01-15',desligamento:'2024-07-10',tipo:'pedido',aviso:'trabalhado',feriasVencidas:0,saldoFgts:0});
@@ -40,6 +42,7 @@
   verdade('sem desconto de aviso',!tem(b,'Desconto'));
   igual('multa zero',b.fgts.multa,0);
   igual('sem saque',b.fgts.saquePercentual,0);
+  igual('pedido: total com FGTS = só a rescisão (FGTS fica na conta)',b.totalComFgts,b.total);
 
   titulo('3. Pedido de demissão: aviso não cumprido x dispensado pela empresa');
   var b2=C({salario:2000,admissao:'2024-01-15',desligamento:'2024-07-10',tipo:'pedido',aviso:'nao_cumprido',feriasVencidas:0,saldoFgts:0});
@@ -63,6 +66,7 @@
   igual('aviso pela metade (42 dias = 2.100)',item(d,'Aviso-prévio'),2100);
   igual('multa 20% sobre (10.000 + FGTS da rescisão)',d.fgts.multa,(10000+0.08*(3000+2750+2100))*0.2);
   igual('saque 80%',d.fgts.saquePercentual,80);
+  igual('acordo: saque de 80% do total da conta',d.fgts.saque,0.8*d.fgts.totalConta);
 
   titulo('6. Limites e datas especiais');
   var e=C({salario:3000,admissao:'2000-01-01',desligamento:'2025-06-30',tipo:'sem_justa',aviso:'indenizado',feriasVencidas:0,saldoFgts:0});
